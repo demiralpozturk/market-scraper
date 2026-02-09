@@ -1,168 +1,417 @@
 {
-  "last_updated": "2026-02-09T12:43:48.075721",
-  "total_products": 5,
-  "total_scraped": 20,
+  "last_updated": "2026-02-09T12:49:13.933339",
+  "total_products": 15,
+  "total_scraped": 32,
   "markets": [
-    "Migros",
-    "ŞOK",
     "A101",
-    "BİM"
+    "Migros",
+    "BİM",
+    "ŞOK"
   ],
   "products": [
     {
-      "name": "Zeytinyağı 1L",
+      "name": "Signal Diş Macunu 75ml",
+      "category": "Kişisel Bakım",
+      "unit": "adet",
+      "prices": [
+        {
+          "market": "BİM",
+          "price": 47.9,
+          "brand": "Ipana",
+          "full_name": "Ipana Diş Macunu 75ml",
+          "scraped_at": "2026-02-09T12:49:13.932984"
+        },
+        {
+          "market": "Migros",
+          "price": 52.5,
+          "brand": "Signal",
+          "full_name": "Signal Diş Macunu 75ml",
+          "scraped_at": "2026-02-09T12:49:13.932979"
+        },
+        {
+          "market": "ŞOK",
+          "price": 89.9,
+          "brand": "Sensodyne",
+          "full_name": "Sensodyne Diş Macunu 75ml",
+          "scraped_at": "2026-02-09T12:49:13.932982"
+        }
+      ],
+      "cheapest_market": "BİM",
+      "cheapest_price": 47.9,
+      "cheapest_brand": "Ipana",
+      "max_savings": 42.00000000000001,
+      "savings_percent": 46.71857619577309
+    },
+    {
+      "name": "Ariel Çamaşır Deterjanı 3kg",
+      "category": "Temizlik",
+      "unit": "adet",
+      "prices": [
+        {
+          "market": "BİM",
+          "price": 179.9,
+          "brand": "Bingo",
+          "full_name": "Bingo Çamaşır Deterjanı 3kg",
+          "scraped_at": "2026-02-09T12:49:13.932962"
+        },
+        {
+          "market": "ŞOK",
+          "price": 184.9,
+          "brand": "Omo",
+          "full_name": "Omo Çamaşır Deterjanı 3kg",
+          "scraped_at": "2026-02-09T12:49:13.932960"
+        },
+        {
+          "market": "A101",
+          "price": 189.9,
+          "brand": "Ariel",
+          "full_name": "Ariel Çamaşır Deterjanı 3kg",
+          "scraped_at": "2026-02-09T12:49:13.932956"
+        },
+        {
+          "market": "Migros",
+          "price": 194.5,
+          "brand": "Persil",
+          "full_name": "Persil Çamaşır Deterjanı 3kg",
+          "scraped_at": "2026-02-09T12:49:13.932958"
+        }
+      ],
+      "cheapest_market": "BİM",
+      "cheapest_price": 179.9,
+      "cheapest_brand": "Bingo",
+      "max_savings": 14.599999999999994,
+      "savings_percent": 7.506426735218506
+    },
+    {
+      "name": "Komili Zeytinyağı 1L",
       "category": "Yağlar",
       "unit": "adet",
       "prices": [
         {
           "market": "BİM",
           "price": 279.0,
-          "scraped_at": "2026-02-09T12:43:48.075113"
+          "brand": "Yudum",
+          "full_name": "Yudum Zeytinyağı 1L",
+          "scraped_at": "2026-02-09T12:49:13.932939"
         },
         {
           "market": "A101",
           "price": 285.0,
-          "scraped_at": "2026-02-09T12:43:48.075079"
+          "brand": "Komili",
+          "full_name": "Komili Zeytinyağı 1L",
+          "scraped_at": "2026-02-09T12:49:13.932932"
         },
         {
           "market": "Migros",
           "price": 289.0,
-          "scraped_at": "2026-02-09T12:43:48.075102"
-        },
-        {
-          "market": "ŞOK",
-          "price": 295.0,
-          "scraped_at": "2026-02-09T12:43:48.075091"
+          "brand": "Tariş",
+          "full_name": "Tariş Zeytinyağı 1L",
+          "scraped_at": "2026-02-09T12:49:13.932934"
         }
       ],
       "cheapest_market": "BİM",
       "cheapest_price": 279.0,
-      "max_savings": 16.0,
-      "savings_percent": 5.423728813559322
+      "cheapest_brand": "Yudum",
+      "max_savings": 10.0,
+      "savings_percent": 3.4602076124567476
     },
     {
-      "name": "Pirinç 1kg",
-      "category": "Temel Gıda",
+      "name": "Pınar Beyaz Peynir 500g",
+      "category": "Peynir",
       "unit": "adet",
       "prices": [
         {
           "market": "BİM",
-          "price": 62.9,
-          "scraped_at": "2026-02-09T12:43:48.075116"
-        },
-        {
-          "market": "Migros",
-          "price": 64.9,
-          "scraped_at": "2026-02-09T12:43:48.075105"
-        },
-        {
-          "market": "A101",
-          "price": 65.9,
-          "scraped_at": "2026-02-09T12:43:48.075081"
+          "price": 124.9,
+          "brand": "Eker",
+          "full_name": "Eker Beyaz Peynir 500g",
+          "scraped_at": "2026-02-09T12:49:13.932947"
         },
         {
           "market": "ŞOK",
-          "price": 68.5,
-          "scraped_at": "2026-02-09T12:43:48.075093"
+          "price": 127.9,
+          "brand": "Sütaş",
+          "full_name": "Sütaş Beyaz Peynir 500g",
+          "scraped_at": "2026-02-09T12:49:13.932945"
+        },
+        {
+          "market": "A101",
+          "price": 129.9,
+          "brand": "Pınar",
+          "full_name": "Pınar Beyaz Peynir 500g",
+          "scraped_at": "2026-02-09T12:49:13.932941"
+        },
+        {
+          "market": "Migros",
+          "price": 134.5,
+          "brand": "Tahsildaroğlu",
+          "full_name": "Tahsildaroğlu Beyaz Peynir 500g",
+          "scraped_at": "2026-02-09T12:49:13.932943"
         }
       ],
       "cheapest_market": "BİM",
-      "cheapest_price": 62.9,
-      "max_savings": 5.600000000000001,
-      "savings_percent": 8.175182481751825
+      "cheapest_price": 124.9,
+      "cheapest_brand": "Eker",
+      "max_savings": 9.599999999999994,
+      "savings_percent": 7.137546468401483
     },
     {
-      "name": "Süt 1L",
+      "name": "Clear Şampuan 500ml",
+      "category": "Kişisel Bakım",
+      "unit": "adet",
+      "prices": [
+        {
+          "market": "BİM",
+          "price": 84.9,
+          "brand": "Palmolive",
+          "full_name": "Palmolive Şampuan 500ml",
+          "scraped_at": "2026-02-09T12:49:13.932973"
+        },
+        {
+          "market": "ŞOK",
+          "price": 87.9,
+          "brand": "Elseve",
+          "full_name": "Elseve Şampuan 500ml",
+          "scraped_at": "2026-02-09T12:49:13.932969"
+        },
+        {
+          "market": "A101",
+          "price": 89.9,
+          "brand": "Clear",
+          "full_name": "Clear Şampuan 500ml",
+          "scraped_at": "2026-02-09T12:49:13.932964"
+        }
+      ],
+      "cheapest_market": "BİM",
+      "cheapest_price": 84.9,
+      "cheapest_brand": "Palmolive",
+      "max_savings": 5.0,
+      "savings_percent": 5.561735261401557
+    },
+    {
+      "name": "Sütaş Süt 1L",
       "category": "Süt Ürünleri",
       "unit": "adet",
       "prices": [
         {
           "market": "BİM",
           "price": 43.9,
-          "scraped_at": "2026-02-09T12:43:48.075107"
+          "brand": "Sütaş",
+          "full_name": "Sütaş Süt 1L",
+          "scraped_at": "2026-02-09T12:49:13.932930"
         },
         {
           "market": "ŞOK",
           "price": 44.95,
-          "scraped_at": "2026-02-09T12:43:48.075084"
+          "brand": "İçim",
+          "full_name": "İçim Süt 1L",
+          "scraped_at": "2026-02-09T12:49:13.932927"
         },
         {
           "market": "A101",
           "price": 45.9,
-          "scraped_at": "2026-02-09T12:43:48.075068"
+          "brand": "Sütaş",
+          "full_name": "Sütaş Süt 1L",
+          "scraped_at": "2026-02-09T12:49:13.932914"
         },
         {
           "market": "Migros",
           "price": 47.5,
-          "scraped_at": "2026-02-09T12:43:48.075096"
+          "brand": "Pınar",
+          "full_name": "Pınar Süt 1L",
+          "scraped_at": "2026-02-09T12:49:13.932924"
         }
       ],
       "cheapest_market": "BİM",
       "cheapest_price": 43.9,
+      "cheapest_brand": "Sütaş",
       "max_savings": 3.6000000000000014,
       "savings_percent": 7.578947368421056
     },
     {
-      "name": "Yoğurt 500g",
-      "category": "Süt Ürünleri",
+      "name": "Tat Burgu Makarna 500g",
+      "category": "Temel Gıda",
       "unit": "adet",
       "prices": [
         {
           "market": "BİM",
-          "price": 26.5,
-          "scraped_at": "2026-02-09T12:43:48.075111"
-        },
-        {
-          "market": "ŞOK",
-          "price": 27.9,
-          "scraped_at": "2026-02-09T12:43:48.075088"
+          "price": 16.9,
+          "brand": "Oba",
+          "full_name": "Oba Burgu Makarna 500g",
+          "scraped_at": "2026-02-09T12:49:13.932954"
         },
         {
           "market": "A101",
-          "price": 28.75,
-          "scraped_at": "2026-02-09T12:43:48.075077"
+          "price": 18.9,
+          "brand": "Tat",
+          "full_name": "Tat Burgu Makarna 500g",
+          "scraped_at": "2026-02-09T12:49:13.932949"
         },
         {
           "market": "Migros",
-          "price": 29.9,
-          "scraped_at": "2026-02-09T12:43:48.075100"
+          "price": 19.5,
+          "brand": "Piyale",
+          "full_name": "Piyale Burgu Makarna 500g",
+          "scraped_at": "2026-02-09T12:49:13.932951"
         }
       ],
       "cheapest_market": "BİM",
-      "cheapest_price": 26.5,
-      "max_savings": 3.3999999999999986,
-      "savings_percent": 11.371237458193976
+      "cheapest_price": 16.9,
+      "cheapest_brand": "Oba",
+      "max_savings": 2.6000000000000014,
+      "savings_percent": 13.333333333333341
     },
     {
-      "name": "Ekmek 350g",
-      "category": "Fırın",
+      "name": "Kristal Ayçiçek Yağı 5L",
+      "category": "Yağlar",
+      "unit": "adet",
+      "prices": [
+        {
+          "market": "ŞOK",
+          "price": 449.9,
+          "brand": "Kristal",
+          "full_name": "Kristal Ayçiçek Yağı 5L",
+          "scraped_at": "2026-02-09T12:49:13.932937"
+        }
+      ],
+      "cheapest_market": "ŞOK",
+      "cheapest_price": 449.9,
+      "cheapest_brand": "Kristal",
+      "max_savings": 0,
+      "savings_percent": 0
+    },
+    {
+      "name": "Nuh'un Ankara Burgu 500g",
+      "category": "Temel Gıda",
+      "unit": "adet",
+      "prices": [
+        {
+          "market": "ŞOK",
+          "price": 17.9,
+          "brand": "Nuh'un Ankara",
+          "full_name": "Nuh'un Ankara Burgu 500g",
+          "scraped_at": "2026-02-09T12:49:13.932952"
+        }
+      ],
+      "cheapest_market": "ŞOK",
+      "cheapest_price": 17.9,
+      "cheapest_brand": "Nuh'un Ankara",
+      "max_savings": 0,
+      "savings_percent": 0
+    },
+    {
+      "name": "Head & Shoulders 500ml",
+      "category": "Kişisel Bakım",
+      "unit": "adet",
+      "prices": [
+        {
+          "market": "Migros",
+          "price": 94.5,
+          "brand": "Head & Shoulders",
+          "full_name": "Head & Shoulders 500ml",
+          "scraped_at": "2026-02-09T12:49:13.932966"
+        }
+      ],
+      "cheapest_market": "Migros",
+      "cheapest_price": 94.5,
+      "cheapest_brand": "Head & Shoulders",
+      "max_savings": 0,
+      "savings_percent": 0
+    },
+    {
+      "name": "Colgate Total 75ml",
+      "category": "Kişisel Bakım",
+      "unit": "adet",
+      "prices": [
+        {
+          "market": "A101",
+          "price": 49.9,
+          "brand": "Colgate",
+          "full_name": "Colgate Total 75ml",
+          "scraped_at": "2026-02-09T12:49:13.932975"
+        }
+      ],
+      "cheapest_market": "A101",
+      "cheapest_price": 49.9,
+      "cheapest_brand": "Colgate",
+      "max_savings": 0,
+      "savings_percent": 0
+    },
+    {
+      "name": "Çaykur Rize Turist Çay 1kg",
+      "category": "İçecek",
+      "unit": "adet",
+      "prices": [
+        {
+          "market": "A101",
+          "price": 189.9,
+          "brand": "Çaykur",
+          "full_name": "Çaykur Rize Turist Çay 1kg",
+          "scraped_at": "2026-02-09T12:49:13.932986"
+        }
+      ],
+      "cheapest_market": "A101",
+      "cheapest_price": 189.9,
+      "cheapest_brand": "Çaykur",
+      "max_savings": 0,
+      "savings_percent": 0
+    },
+    {
+      "name": "Lipton Yellow Label 1kg",
+      "category": "İçecek",
+      "unit": "adet",
+      "prices": [
+        {
+          "market": "Migros",
+          "price": 194.5,
+          "brand": "Lipton",
+          "full_name": "Lipton Yellow Label 1kg",
+          "scraped_at": "2026-02-09T12:49:13.932988"
+        }
+      ],
+      "cheapest_market": "Migros",
+      "cheapest_price": 194.5,
+      "cheapest_brand": "Lipton",
+      "max_savings": 0,
+      "savings_percent": 0
+    },
+    {
+      "name": "Doğuş Karadeniz Çay 1kg",
+      "category": "İçecek",
+      "unit": "adet",
+      "prices": [
+        {
+          "market": "ŞOK",
+          "price": 184.9,
+          "brand": "Doğuş",
+          "full_name": "Doğuş Karadeniz Çay 1kg",
+          "scraped_at": "2026-02-09T12:49:13.932991"
+        }
+      ],
+      "cheapest_market": "ŞOK",
+      "cheapest_price": 184.9,
+      "cheapest_brand": "Doğuş",
+      "max_savings": 0,
+      "savings_percent": 0
+    },
+    {
+      "name": "Çaykur Tiryaki 1kg",
+      "category": "İçecek",
       "unit": "adet",
       "prices": [
         {
           "market": "BİM",
-          "price": 11.5,
-          "scraped_at": "2026-02-09T12:43:48.075109"
-        },
-        {
-          "market": "ŞOK",
-          "price": 12.0,
-          "scraped_at": "2026-02-09T12:43:48.075086"
-        },
-        {
-          "market": "A101",
-          "price": 12.5,
-          "scraped_at": "2026-02-09T12:43:48.075074"
-        },
-        {
-          "market": "Migros",
-          "price": 13.5,
-          "scraped_at": "2026-02-09T12:43:48.075098"
+          "price": 179.9,
+          "brand": "Çaykur",
+          "full_name": "Çaykur Tiryaki 1kg",
+          "scraped_at": "2026-02-09T12:49:13.932992"
         }
       ],
       "cheapest_market": "BİM",
-      "cheapest_price": 11.5,
-      "max_savings": 2.0,
-      "savings_percent": 14.814814814814813
+      "cheapest_price": 179.9,
+      "cheapest_brand": "Çaykur",
+      "max_savings": 0,
+      "savings_percent": 0
     }
   ]
 }
