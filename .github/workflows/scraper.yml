@@ -1,0 +1,46 @@
+name: Market Fiyat Scraper
+
+on:
+  schedule:
+    # Her gün saat 08:00 ve 20:00'de çalıştır
+    - cron: '0 8,20 * * *'
+  workflow_dispatch:  # Manuel çalıştırma
+  push:
+    branches: [ main, master ]
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    
+    - name: Python kurulumu
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    
+    - name: Bağımlılıkları yükle
+      run: |
+        pip install -r requirements.txt
+    
+    - name: Scraper'ı çalıştır
+      run: |
+        python market_scraper_v2.py
+    
+    - name: Değişiklikleri commit et
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git add products_data.json scraper.log
+        git diff --quiet && git diff --staged --quiet || git commit -m "🔄 Fiyat verileri güncellendi - $(date +'%Y-%m-%d %H:%M')"
+        git push
+      continue-on-error: true
+    
+    - name: GitHub Pages için deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
+        publish_branch: gh-pages
