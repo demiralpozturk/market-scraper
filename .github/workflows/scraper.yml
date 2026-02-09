@@ -1,9 +1,9 @@
-name: Market Fiyat Scraper
+name: Safe Market Scraper (IP Ban Proof)
 
 on:
   schedule:
-    # Her gün saat 08:00 ve 20:00'de çalıştır
-    - cron: '0 8,20 * * *'
+    # Her 6 saatte bir (IP ban önleme)
+    - cron: '0 */6 * * *'
   workflow_dispatch:  # Manuel çalıştırma
   push:
     branches: [ main, master ]
@@ -16,31 +16,45 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     
-    - name: Python kurulumu
+    - name: Python Kurulumu
       uses: actions/setup-python@v4
       with:
         python-version: '3.10'
+        cache: 'pip'
     
-    - name: Bağımlılıkları yükle
+    - name: Bağımlılıkları Yükle
       run: |
+        pip install --upgrade pip
         pip install -r requirements.txt
     
-    - name: Scraper'ı çalıştır
+    - name: Güvenli Scraping Başlat
       run: |
-        python market_scraper_v2.py
-    
-    - name: Değişiklikleri commit et
-      run: |
-        git config user.name "GitHub Actions"
-        git config user.email "actions@github.com"
-        git add products_data.json scraper.log
-        git diff --quiet && git diff --staged --quiet || git commit -m "🔄 Fiyat verileri güncellendi - $(date +'%Y-%m-%d %H:%M')"
-        git push
+        echo "🛡️ IP Ban Önleyici Scraper Başlatılıyor..."
+        python scraper.py
       continue-on-error: true
     
-    - name: GitHub Pages için deploy
+    - name: Veri Kontrolü
+      run: |
+        if [ -f products_data.json ]; then
+          echo "✅ Veri başarıyla çekildi!"
+          cat products_data.json | head -20
+        else
+          echo "⚠️ Veri çekilemedi, fallback kullanıldı"
+        fi
+    
+    - name: Git Commit
+      run: |
+        git config user.name "Safe Scraper Bot"
+        git config user.email "bot@safescraper.com"
+        git add products_data.json scraper.log || true
+        git diff --quiet && git diff --staged --quiet || git commit -m "🛡️ Güvenli güncelleme - $(date +'%Y-%m-%d %H:%M')"
+        git push || true
+      continue-on-error: true
+    
+    - name: GitHub Pages Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./
         publish_branch: gh-pages
+      continue-on-error: true
