@@ -1,13 +1,13 @@
 {
-  "last_updated": "2026-10-30T05:15:35.120548",
+  "last_updated": "2026-10-30T12:33:06.309220",
   "total_products": 5,
   "total_scraped": 13,
   "total_requests": 6,
   "markets": [
+    "ŞOK",
     "Migros",
-    "A101",
     "BİM",
-    "ŞOK"
+    "A101"
   ],
   "products": [
     {
@@ -19,21 +19,21 @@
           "price": 279.0,
           "brand": "Komili",
           "full_name": "Komili Zeytinyağı 1L",
-          "scraped_at": "2026-10-30T05:15:35.120041"
+          "scraped_at": "2026-10-30T12:33:06.308751"
         },
         {
           "market": "Migros",
           "price": 285.0,
           "brand": "Komili",
           "full_name": "Komili Zeytinyağı 1L",
-          "scraped_at": "2026-10-30T05:15:35.120037"
+          "scraped_at": "2026-10-30T12:33:06.308748"
         },
         {
           "market": "A101",
           "price": 289.0,
           "brand": "Tariş",
           "full_name": "Tariş Zeytinyağı 1L",
-          "scraped_at": "2026-10-30T05:15:35.120039"
+          "scraped_at": "2026-10-30T12:33:06.308749"
         }
       ],
       "cheapest_market": "BİM",
@@ -51,14 +51,14 @@
           "price": 179.9,
           "brand": "Bingo",
           "full_name": "Bingo Deterjan 3kg",
-          "scraped_at": "2026-10-30T05:15:35.120050"
+          "scraped_at": "2026-10-30T12:33:06.308756"
         },
         {
           "market": "Migros",
           "price": 189.9,
           "brand": "Ariel",
           "full_name": "Ariel Deterjan 3kg",
-          "scraped_at": "2026-10-30T05:15:35.120047"
+          "scraped_at": "2026-10-30T12:33:06.308755"
         }
       ],
       "cheapest_market": "BİM",
@@ -76,14 +76,14 @@
           "price": 124.9,
           "brand": "Eker",
           "full_name": "Eker Beyaz Peynir 500g",
-          "scraped_at": "2026-10-30T05:15:35.120045"
+          "scraped_at": "2026-10-30T12:33:06.308753"
         },
         {
           "market": "Migros",
           "price": 129.9,
           "brand": "Pınar",
           "full_name": "Pınar Beyaz Peynir 500g",
-          "scraped_at": "2026-10-30T05:15:35.120043"
+          "scraped_at": "2026-10-30T12:33:06.308752"
         }
       ],
       "cheapest_market": "BİM",
@@ -101,14 +101,14 @@
           "price": 84.9,
           "brand": "Palmolive",
           "full_name": "Palmolive Şampuan 500ml",
-          "scraped_at": "2026-10-30T05:15:35.120061"
+          "scraped_at": "2026-10-30T12:33:06.308766"
         },
         {
           "market": "A101",
           "price": 89.9,
           "brand": "Clear",
           "full_name": "Clear Şampuan 500ml",
-          "scraped_at": "2026-10-30T05:15:35.120059"
+          "scraped_at": "2026-10-30T12:33:06.308765"
         }
       ],
       "cheapest_market": "BİM",
@@ -126,28 +126,28 @@
           "price": 43.9,
           "brand": "Sütaş",
           "full_name": "Sütaş Süt 1L",
-          "scraped_at": "2026-10-30T05:15:35.120035"
+          "scraped_at": "2026-10-30T12:33:06.308747"
         },
         {
           "market": "ŞOK",
           "price": 44.5,
           "brand": "İçim",
           "full_name": "İçim Süt 1L",
-          "scraped_at": "2026-10-30T05:15:35.120032"
+          "scraped_at": "2026-10-30T12:33:06.308745"
         },
         {
           "market": "Migros",
           "price": 45.9,
           "brand": "Sütaş",
           "full_name": "Sütaş Süt 1L",
-          "scraped_at": "2026-10-30T05:15:35.120022"
+          "scraped_at": "2026-10-30T12:33:06.308736"
         },
         {
           "market": "A101",
           "price": 46.9,
           "brand": "Pınar",
           "full_name": "Pınar Süt 1L",
-          "scraped_at": "2026-10-30T05:15:35.120030"
+          "scraped_at": "2026-10-30T12:33:06.308744"
         }
       ],
       "cheapest_market": "BİM",
