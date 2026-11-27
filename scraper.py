@@ -1,435 +1,265 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-🛡️ IP BAN ÖNLEYICI MARKET SCRAPER
-✅ Proxy rotation
-✅ User-agent rotation
-✅ Rate limiting
-✅ Cloudflare bypass
-✅ Retry logic
+Market fiyat karşılaştırma - gerçek veri
+
+Kaynak: marketfiyati.org.tr (T.C. Ticaret Bakanlığı "Market Fiyatı" servisi).
+Aynı ürünün Migros, A101, ŞOK, BİM, CarrefourSA, Hakmar ve Tarım Kredi
+fiyatlarını tek kayıtta verir; ürün eşleştirmesini servis yapar.
+
+Kurallar:
+- Sahte / sabit yedek veri YOK. Veri gelmezse mevcut products_data.json
+  olduğu gibi kalır ve betik hata koduyla çıkar.
+- Fiyatlar değişmediyse dosyaya dokunulmaz (yalnız zaman damgası için commit olmaz).
+- GitHub Actions'ta çalışırken GITHUB_OUTPUT'a changed=true/false ve count=N yazar.
 """
 
-import requests
-from bs4 import BeautifulSoup
+import hashlib
 import json
-from datetime import datetime
-import time
-import random
 import logging
+import os
+import sys
+import time
+from datetime import datetime, timedelta, timezone
 
-# CloudScraper - Cloudflare bypass için
-try:
-    import cloudscraper
-    CLOUDSCRAPER_AVAILABLE = True
-except ImportError:
-    CLOUDSCRAPER_AVAILABLE = False
-    print("⚠️ cloudscraper yüklü değil. Yüklemek için: pip install cloudscraper")
+import requests
+
+API_URL = "https://api.marketfiyati.org.tr/api/v2/search"
+SOURCE_NAME = "marketfiyati.org.tr (T.C. Ticaret Bakanlığı Market Fiyatı)"
+SOURCE_URL = "https://marketfiyati.org.tr"
+DATA_FILE = "products_data.json"
+
+# Türkiye yaz/kış saati uygulamıyor: sabit UTC+3
+TR_TZ = timezone(timedelta(hours=3))
+
+# Takip edilen sepet (arama kelimeleri)
+BASKET = [
+    "süt 1 lt",
+    "ayçiçek yağı",
+    "zeytinyağı",
+    "beyaz peynir",
+    "kaşar peyniri",
+    "yumurta",
+    "tereyağı",
+    "yoğurt",
+    "çay 1000 gr",
+    "türk kahvesi",
+    "makarna",
+    "pirinç",
+    "bulgur",
+    "kırmızı mercimek",
+    "un 5 kg",
+    "toz şeker",
+    "domates salçası",
+    "çamaşır deterjanı",
+    "bulaşık deterjanı",
+    "tuvalet kağıdı",
+    "şampuan",
+    "diş macunu",
+]
+
+PAGE_SIZE = 24
+MIN_PRODUCTS = 5          # bundan az karşılaştırma çıkarsa dosya ezilmez
+REQUEST_DELAY = 1.5       # istekler arası bekleme (sn) - servise yük bindirmemek için
+MAX_RETRIES = 3
+
+MARKET_NAMES = {
+    "migros": "Migros",
+    "a101": "A101",
+    "sok": "ŞOK",
+    "bim": "BİM",
+    "carrefour": "CarrefourSA",
+    "hakmar": "Hakmar",
+    "tarim_kredi": "Tarım Kredi",
+}
+MARKET_ORDER = list(MARKET_NAMES.values())
 
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
+    format="%(asctime)s - %(levelname)s - %(message)s",
     handlers=[
-        logging.FileHandler('scraper.log', encoding='utf-8'),
-        logging.StreamHandler()
-    ]
+        logging.FileHandler("scraper.log", encoding="utf-8"),
+        logging.StreamHandler(sys.stdout),
+    ],
 )
 logger = logging.getLogger(__name__)
 
 
-class SafeMarketScraper:
-    """IP Ban Önleyici Güvenli Scraper"""
-    
+def market_label(code):
+    return MARKET_NAMES.get(code, str(code).replace("_", " ").title())
+
+
+class MarketFiyatScraper:
     def __init__(self):
-        # User-Agent havuzu (gerçek tarayıcılar)
-        self.user_agents = [
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0',
-            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        ]
-        
-        # CloudScraper session (Cloudflare bypass)
-        if CLOUDSCRAPER_AVAILABLE:
-            self.scraper = cloudscraper.create_scraper(
-                browser={'browser': 'chrome', 'platform': 'windows', 'mobile': False}
-            )
-        else:
-            self.scraper = requests.Session()
-        
-        self.products = []
-        
-        # Rate limiting ayarları
-        self.min_delay = 3  # Minimum 3 saniye
-        self.max_delay = 7  # Maximum 7 saniye
+        self.session = requests.Session()
+        self.session.headers.update({
+            "User-Agent": "market-fiyat-karsilastirma/2.0",
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Accept-Language": "tr-TR,tr;q=0.9",
+        })
         self.request_count = 0
-        self.max_requests_per_site = 20  # Site başına max istek
-        
-        # Retry ayarları
-        self.max_retries = 3
-        self.retry_delay = 5
-    
-    def get_random_headers(self):
-        """Her istekte farklı header"""
-        return {
-            'User-Agent': random.choice(self.user_agents),
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-            'Accept-Language': 'tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'DNT': '1',
-            'Connection': 'keep-alive',
-            'Upgrade-Insecure-Requests': '1',
-            'Sec-Fetch-Dest': 'document',
-            'Sec-Fetch-Mode': 'navigate',
-            'Sec-Fetch-Site': 'none',
-            'Cache-Control': 'max-age=0',
-        }
-    
-    def smart_delay(self, extra=0):
-        """Akıllı bekleme - insan gibi davran"""
-        delay = random.uniform(self.min_delay, self.max_delay) + extra
-        logger.info(f"⏳ {delay:.1f} saniye bekleniyor (insan gibi)...")
-        time.sleep(delay)
-    
-    def safe_request(self, url, method='GET', **kwargs):
-        """Güvenli HTTP isteği - retry logic ile"""
-        for attempt in range(self.max_retries):
+        self.failed_keywords = []
+        self.products = {}          # ürün id -> ürün kaydı
+        self.index_times = set()
+
+    def search(self, keyword):
+        body = {"keywords": keyword, "pages": 0, "size": PAGE_SIZE}
+        for attempt in range(1, MAX_RETRIES + 1):
             try:
-                # Her istekte yeni headers
-                headers = self.get_random_headers()
-                if 'headers' in kwargs:
-                    headers.update(kwargs['headers'])
-                kwargs['headers'] = headers
-                
-                # Timeout ekle
-                if 'timeout' not in kwargs:
-                    kwargs['timeout'] = 15
-                
-                # İstek at
-                if method.upper() == 'GET':
-                    response = self.scraper.get(url, **kwargs)
-                else:
-                    response = self.scraper.post(url, **kwargs)
-                
                 self.request_count += 1
-                
-                # Başarılı
-                if response.status_code == 200:
-                    logger.info(f"✓ İstek başarılı: {url[:50]}...")
-                    return response
-                
-                # Rate limit (429)
-                elif response.status_code == 429:
-                    wait_time = self.retry_delay * (attempt + 1) * 2
-                    logger.warning(f"⚠️ Rate limit! {wait_time} saniye bekleniyor...")
-                    time.sleep(wait_time)
-                    continue
-                
-                # Diğer hatalar
-                else:
-                    logger.warning(f"⚠️ HTTP {response.status_code}: {url[:50]}...")
-                    if attempt < self.max_retries - 1:
-                        time.sleep(self.retry_delay * (attempt + 1))
-                        continue
+                r = self.session.post(API_URL, json=body, timeout=30)
+                if r.status_code == 200:
+                    return r.json().get("content") or []
+                logger.warning(f"HTTP {r.status_code} ('{keyword}', deneme {attempt}/{MAX_RETRIES})")
+                if r.status_code < 500 and r.status_code != 429:
                     return None
-                    
-            except Exception as e:
-                logger.warning(f"⚠️ Hata (deneme {attempt+1}/{self.max_retries}): {e}")
-                if attempt < self.max_retries - 1:
-                    time.sleep(self.retry_delay * (attempt + 1))
-                    continue
-                return None
-        
+            except (requests.RequestException, ValueError) as e:
+                logger.warning(f"İstek hatası ('{keyword}', deneme {attempt}/{MAX_RETRIES}): {e}")
+            time.sleep(REQUEST_DELAY * attempt * 2)
         return None
-    
-    def clean_price(self, price):
-        """Fiyat temizle"""
-        if isinstance(price, (int, float)):
-            return float(price)
-        if not price:
-            return 0.0
-        import re
-        price = str(price)
-        price = re.sub(r'[^\d,.]', '', price)
-        price = price.replace('.', '').replace(',', '.')
-        try:
-            return float(price)
-        except:
-            return 0.0
-    
-    def scrape_migros(self):
-        """Migros - Güvenli scraping"""
-        logger.info("\n" + "="*60)
-        logger.info("📦 Migros'tan güvenli çekiliyor...")
-        logger.info("="*60)
-        
-        try:
-            # Migros kategorileri
-            url = "https://www.migros.com.tr/rest/products/search/sanalmarket"
-            
-            params = {
-                'category': 'sut-kahvalti-c-2',
-                'page': 0,
-                'size': 15,
-            }
-            
-            response = self.safe_request(url, params=params)
-            
-            if response and response.status_code == 200:
-                try:
-                    data = response.json()
-                    count = 0
-                    
-                    for item in data.get('products', [])[:10]:
-                        try:
-                            name = item.get('name', '')
-                            brand = item.get('marka', item.get('brand', ''))
-                            price_obj = item.get('price', {})
-                            price = price_obj.get('value', 0) if price_obj else 0
-                            
-                            if name and price > 0:
-                                self.products.append({
-                                    'name': name,
-                                    'brand': brand,
-                                    'price': float(price),
-                                    'market': 'Migros',
-                                    'category': 'Süt & Kahvaltı',
-                                    'scraped_at': datetime.now().isoformat()
-                                })
-                                count += 1
-                                logger.info(f"  ✓ {name}: {price} ₺")
-                        except:
-                            continue
-                    
-                    logger.info(f"✅ Migros: {count} ürün çekildi")
-                    self.smart_delay()
-                    return count > 0
-                    
-                except:
-                    logger.warning("⚠️ Migros JSON parse hatası")
-            
-            return False
-            
-        except Exception as e:
-            logger.error(f"✗ Migros hatası: {e}")
-            return False
-    
-    def scrape_a101_safe(self):
-        """A101 - Cloudflare bypass ile"""
-        logger.info("\n" + "="*60)
-        logger.info("📦 A101'den güvenli çekiliyor...")
-        logger.info("="*60)
-        
-        try:
-            url = "https://www.a101.com.tr/market/"
-            
-            response = self.safe_request(url)
-            
-            if response and response.status_code == 200:
-                soup = BeautifulSoup(response.content, 'html.parser')
-                count = 0
-                
-                # Farklı selector denemeleri
-                selectors = [
-                    '.product-card',
-                    '.product-item',
-                    '.prd-item',
-                    '[class*="product"]',
-                ]
-                
-                products = []
-                for selector in selectors:
-                    products = soup.select(selector)[:10]
-                    if products:
-                        break
-                
-                for product in products:
-                    try:
-                        # İsim
-                        name_elem = product.select_one('.name, .product-name, h3, h2, [class*="name"]')
-                        # Fiyat
-                        price_elem = product.select_one('.price, .product-price, [class*="price"]')
-                        
-                        if name_elem and price_elem:
-                            name = name_elem.text.strip()
-                            price = self.clean_price(price_elem.text)
-                            
-                            if name and price > 0:
-                                self.products.append({
-                                    'name': name,
-                                    'brand': '',
-                                    'price': price,
-                                    'market': 'A101',
-                                    'category': 'Gıda',
-                                    'scraped_at': datetime.now().isoformat()
-                                })
-                                count += 1
-                                logger.info(f"  ✓ {name}: {price} ₺")
-                    except:
-                        continue
-                
-                logger.info(f"✅ A101: {count} ürün çekildi")
-                self.smart_delay()
-                return count > 0
-            
-            return False
-            
-        except Exception as e:
-            logger.error(f"✗ A101 hatası: {e}")
-            return False
-    
-    def add_fallback_data(self):
-        """Güvenilir fallback veriler"""
-        logger.info("\n📊 Güvenilir fallback veriler ekleniyor...")
-        
-        fallback = [
-            # Süt
-            {"name": "Sütaş Süt 1L", "brand": "Sütaş", "price": 45.90, "market": "Migros", "category": "Süt Ürünleri"},
-            {"name": "Pınar Süt 1L", "brand": "Pınar", "price": 46.90, "market": "A101", "category": "Süt Ürünleri"},
-            {"name": "İçim Süt 1L", "brand": "İçim", "price": 44.50, "market": "ŞOK", "category": "Süt Ürünleri"},
-            {"name": "Sütaş Süt 1L", "brand": "Sütaş", "price": 43.90, "market": "BİM", "category": "Süt Ürünleri"},
-            
-            # Yağ
-            {"name": "Komili Zeytinyağı 1L", "brand": "Komili", "price": 285.00, "market": "Migros", "category": "Yağlar"},
-            {"name": "Tariş Zeytinyağı 1L", "brand": "Tariş", "price": 289.00, "market": "A101", "category": "Yağlar"},
-            {"name": "Komili Zeytinyağı 1L", "brand": "Komili", "price": 279.00, "market": "BİM", "category": "Yağlar"},
-            
-            # Peynir
-            {"name": "Pınar Beyaz Peynir 500g", "brand": "Pınar", "price": 129.90, "market": "Migros", "category": "Peynir"},
-            {"name": "Eker Beyaz Peynir 500g", "brand": "Eker", "price": 124.90, "market": "BİM", "category": "Peynir"},
-            
-            # Deterjan
-            {"name": "Ariel Deterjan 3kg", "brand": "Ariel", "price": 189.90, "market": "Migros", "category": "Temizlik"},
-            {"name": "Bingo Deterjan 3kg", "brand": "Bingo", "price": 179.90, "market": "BİM", "category": "Temizlik"},
-            
-            # Şampuan
-            {"name": "Clear Şampuan 500ml", "brand": "Clear", "price": 89.90, "market": "A101", "category": "Kişisel Bakım"},
-            {"name": "Palmolive Şampuan 500ml", "brand": "Palmolive", "price": 84.90, "market": "BİM", "category": "Kişisel Bakım"},
-        ]
-        
-        for item in fallback:
-            self.products.append({
-                **item,
-                'scraped_at': datetime.now().isoformat()
+
+    def add_product(self, item, scraped_at):
+        pid = item.get("id")
+        depots = item.get("productDepotInfoList") or []
+        if not pid or pid in self.products or not depots:
+            return
+
+        # Her market için en ucuz şube fiyatı
+        best = {}
+        for d in depots:
+            code = d.get("marketAdi")
+            price = d.get("price")
+            if not code or not isinstance(price, (int, float)) or price <= 0:
+                continue
+            if code not in best or price < best[code]["price"]:
+                best[code] = d
+        if len(best) < 2:
+            return  # karşılaştırma için en az iki market gerekli
+
+        name = (item.get("title") or "").strip()
+        brand = (item.get("brand") or "").strip()
+        prices = []
+        for code, d in best.items():
+            if d.get("indexTime"):
+                self.index_times.add(d["indexTime"])
+            prices.append({
+                "market": market_label(code),
+                "price": round(float(d["price"]), 2),
+                "brand": brand,
+                "full_name": name,
+                "store": (d.get("depotName") or "").strip(),
+                "unit_price": d.get("unitPrice") or "",
+                "discount": bool(d.get("discount")),
+                "source_time": d.get("indexTime") or "",
+                "scraped_at": scraped_at,
             })
-        
-        logger.info(f"✅ {len(fallback)} fallback ürün eklendi")
-    
-    def organize_data(self):
-        """Verileri organize et"""
-        logger.info("\n🔄 Veriler organize ediliyor...")
-        
-        if not self.products:
-            return []
-        
-        grouped = {}
-        
-        for p in self.products:
-            base_name = p['name'].lower()
-            if p.get('brand'):
-                base_name = base_name.replace(p['brand'].lower(), '').strip()
-            
-            import re
-            base_name = re.sub(r'\d+\s*(ml|lt|l|gr|g|kg|adet)', '', base_name).strip()
-            
-            key = f"{p['category']}_{base_name}"
-            
-            if key not in grouped:
-                grouped[key] = {
-                    'name': p['name'],
-                    'category': p['category'],
-                    'prices': []
-                }
-            
-            grouped[key]['prices'].append({
-                'market': p['market'],
-                'price': p['price'],
-                'brand': p.get('brand', ''),
-                'full_name': p['name'],
-                'scraped_at': p['scraped_at']
-            })
-        
-        result = []
-        for data in grouped.values():
-            data['prices'].sort(key=lambda x: x['price'])
-            data['cheapest_market'] = data['prices'][0]['market']
-            data['cheapest_price'] = data['prices'][0]['price']
-            data['cheapest_brand'] = data['prices'][0].get('brand', '')
-            
-            if len(data['prices']) > 1:
-                data['max_savings'] = data['prices'][-1]['price'] - data['prices'][0]['price']
-                data['savings_percent'] = (data['max_savings'] / data['prices'][-1]['price']) * 100
-            else:
-                data['max_savings'] = 0
-                data['savings_percent'] = 0
-            
-            result.append(data)
-        
-        result.sort(key=lambda x: x['max_savings'], reverse=True)
-        return result
-    
-    def save_json(self, data):
-        """JSON kaydet"""
-        output = {
-            'last_updated': datetime.now().isoformat(),
-            'total_products': len(data),
-            'total_scraped': len(self.products),
-            'total_requests': self.request_count,
-            'markets': list(set([p['market'] for p in self.products])),
-            'products': data
+        prices.sort(key=lambda p: (p["price"], MARKET_ORDER.index(p["market"]) if p["market"] in MARKET_ORDER else 99))
+
+        cheapest, dearest = prices[0], prices[-1]
+        savings = round(dearest["price"] - cheapest["price"], 2)
+        self.products[pid] = {
+            "id": pid,
+            "name": name,
+            "category": item.get("menu_category") or item.get("main_category") or "Diğer",
+            "size": item.get("refinedVolumeOrWeight") or "",
+            "image": item.get("imageUrl") or "",
+            "prices": prices,
+            "cheapest_market": cheapest["market"],
+            "cheapest_price": cheapest["price"],
+            "cheapest_brand": brand,
+            "max_savings": savings,
+            "savings_percent": round(savings / dearest["price"] * 100, 1) if dearest["price"] else 0,
         }
-        
-        with open('products_data.json', 'w', encoding='utf-8') as f:
-            json.dump(output, f, ensure_ascii=False, indent=2)
-        
-        logger.info(f"\n✅ JSON kaydedildi!")
-        logger.info(f"📊 {len(data)} ürün")
-        logger.info(f"🏪 {len(output['markets'])} market")
-        logger.info(f"📡 {self.request_count} HTTP isteği")
-        
-        if data:
-            logger.info("\n💰 EN ÇOK TASARRUF:")
-            for i, p in enumerate(data[:5], 1):
-                if p['max_savings'] > 0:
-                    logger.info(f"  {i}. {p['name']}: {p['max_savings']:.2f} ₺")
-    
+
+    @staticmethod
+    def data_hash(products):
+        """Zaman damgaları hariç fiyat verisinin parmak izi."""
+        rows = sorted(
+            (p["id"], pr["market"], pr["price"], pr["store"], pr["discount"])
+            for p in products for pr in p["prices"]
+        )
+        return hashlib.sha256(json.dumps(rows, ensure_ascii=False).encode("utf-8")).hexdigest()
+
+    @staticmethod
+    def load_existing_hash():
+        try:
+            with open(DATA_FILE, encoding="utf-8") as f:
+                return json.load(f).get("data_hash")
+        except (OSError, ValueError):
+            return None
+
     def run(self):
-        """Ana çalıştırma - IP ban önleyici"""
-        logger.info("\n" + "🛡️"*30)
-        logger.info("IP BAN ÖNLEYİCİ MARKET SCRAPER")
-        logger.info("🛡️"*30 + "\n")
-        
-        start_time = time.time()
-        
-        # Marketleri tek tek dene
-        success_count = 0
-        
-        # Migros
-        if self.scrape_migros():
-            success_count += 1
-        
-        # A101
-        if self.scrape_a101_safe():
-            success_count += 1
-        
-        # Yeterli veri yoksa fallback
-        if len(self.products) < 5:
-            logger.warning("\n⚠️ Az veri çekildi, fallback ekleniyor...")
-            self.add_fallback_data()
-        
-        # Organize ve kaydet
-        organized = self.organize_data()
-        self.save_json(organized)
-        
-        elapsed = time.time() - start_time
-        logger.info(f"\n⏱️ Toplam süre: {elapsed:.1f} saniye")
-        logger.info(f"✅ {success_count} market başarılı")
-        logger.info("\n" + "="*60)
-        logger.info("✅ TAMAMLANDI - IP BAN YEMEDİNİZ!")
-        logger.info("="*60 + "\n")
+        logger.info("Market fiyatları çekiliyor - kaynak: " + SOURCE_NAME)
+        scraped_at = datetime.now(TR_TZ).isoformat(timespec="seconds")
+
+        for i, kw in enumerate(BASKET):
+            if i:
+                time.sleep(REQUEST_DELAY)
+            items = self.search(kw)
+            if items is None:
+                self.failed_keywords.append(kw)
+                continue
+            before = len(self.products)
+            for item in items:
+                self.add_product(item, scraped_at)
+            logger.info(f"  '{kw}': {len(items)} sonuç, {len(self.products) - before} karşılaştırmalı ürün")
+
+        products = sorted(self.products.values(), key=lambda p: (-p["max_savings"], p["name"]))
+        price_count = sum(len(p["prices"]) for p in products)
+        logger.info(f"Toplam: {len(products)} ürün, {price_count} fiyat, {self.request_count} istek")
+        if self.failed_keywords:
+            logger.warning(f"Başarısız aramalar: {', '.join(self.failed_keywords)}")
+
+        if len(products) < MIN_PRODUCTS:
+            logger.error(f"Gerçek veri yetersiz ({len(products)} ürün) - {DATA_FILE} DEĞİŞTİRİLMEDİ.")
+            self.write_output(changed=False, count=len(products))
+            return 1
+
+        new_hash = self.data_hash(products)
+        if new_hash == self.load_existing_hash():
+            logger.info("Fiyatlarda değişiklik yok - dosyaya dokunulmadı.")
+            self.write_output(changed=False, count=len(products))
+            return 0
+
+        markets = {pr["market"] for p in products for pr in p["prices"]}
+        output = {
+            "source": SOURCE_NAME,
+            "source_url": SOURCE_URL,
+            "last_updated": scraped_at,
+            "price_index_time": max(self.index_times, key=_parse_index_time) if self.index_times else "",
+            "total_products": len(products),
+            "total_scraped": price_count,
+            "total_requests": self.request_count,
+            "markets": sorted(markets, key=lambda m: MARKET_ORDER.index(m) if m in MARKET_ORDER else 99),
+            "data_hash": new_hash,
+            "products": products,
+        }
+        tmp = DATA_FILE + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(output, f, ensure_ascii=False, indent=2)
+        os.replace(tmp, DATA_FILE)
+        logger.info(f"{DATA_FILE} güncellendi ({len(products)} ürün, {len(markets)} market).")
+        for p in products[:5]:
+            logger.info(f"  {p['name']}: en ucuz {p['cheapest_market']} {p['cheapest_price']:.2f} TL, fark {p['max_savings']:.2f} TL")
+        self.write_output(changed=True, count=len(products))
+        return 0
+
+    @staticmethod
+    def write_output(changed, count):
+        path = os.environ.get("GITHUB_OUTPUT")
+        if path:
+            with open(path, "a", encoding="utf-8") as f:
+                f.write(f"changed={'true' if changed else 'false'}\n")
+                f.write(f"count={count}\n")
 
 
-if __name__ == '__main__':
-    scraper = SafeMarketScraper()
-    scraper.run()
+def _parse_index_time(s):
+    try:
+        return datetime.strptime(s, "%d.%m.%Y %H:%M")
+    except ValueError:
+        return datetime.min
+
+
+if __name__ == "__main__":
+    sys.exit(MarketFiyatScraper().run())
