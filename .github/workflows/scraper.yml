@@ -7,6 +7,7 @@ on:
   workflow_dispatch:  # Manuel çalıştırma
   push:
     branches: [ main ]
+  pull_request:  # PR'larda: veri çekilebiliyor mu ve JSON şeması sağlam mı (commit/yayın yok)
 
 permissions:
   contents: write
@@ -45,9 +46,26 @@ jobs:
         echo "Fiyat değişti mi: ${{ steps.scrape.outputs.changed }}"
         echo "### Market fiyatları: ${{ steps.scrape.outputs.count }} ürün, değişiklik: ${{ steps.scrape.outputs.changed }}" >> "$GITHUB_STEP_SUMMARY"
 
-    # Yalnızca fiyatlar değiştiyse commit (sadece zaman damgası için commit yok)
+    - name: Veri Şeması Kontrolü
+      run: |
+        python - <<'PY'
+        import json
+        d = json.load(open("products_data.json", encoding="utf-8"))
+        for key in ("source", "last_updated", "markets", "products"):
+            assert key in d, f"eksik alan: {key}"
+        assert d["products"], "ürün listesi boş"
+        for p in d["products"]:
+            assert p["name"] and p["category"], p
+            assert len(p["prices"]) >= 2, f"tek fiyatlı ürün: {p['name']}"
+            prices = [x["price"] for x in p["prices"]]
+            assert prices == sorted(prices) and prices[0] > 0, f"fiyat sırası/değeri hatalı: {p['name']}"
+            assert p["cheapest_price"] == prices[0], f"en ucuz fiyat tutarsız: {p['name']}"
+        print(f"JSON şeması sağlam: {len(d['products'])} ürün, {len(d['markets'])} market")
+        PY
+
+    # Yalnızca fiyatlar değiştiyse commit (sadece zaman damgası için commit yok); PR'larda asla
     - name: Git Commit
-      if: steps.scrape.outputs.changed == 'true'
+      if: steps.scrape.outputs.changed == 'true' && github.event_name != 'pull_request'
       run: |
         git config user.name "Safe Scraper Bot"
         git config user.email "bot@safescraper.com"
