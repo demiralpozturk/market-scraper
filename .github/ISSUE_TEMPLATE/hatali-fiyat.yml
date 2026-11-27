@@ -1,0 +1,75 @@
+name: Hatalı fiyat bildir
+description: Sayfadaki bir fiyat yanlış görünüyorsa ya da ürün o markette yoksa bildirin.
+title: "Hatalı fiyat: "
+labels: ["hatalı-fiyat"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Teşekkürler! Sayfadaki fiyatlar T.C. Ticaret Bakanlığı **marketfiyati.org.tr**'nin mağaza (şube) verisidir;
+        online mağaza fiyatlarından ve diğer şubelerden farklı olabilir. Sayfadaki **Hatalı fiyat bildir** bağlantısından
+        geldiyseniz ürün, market, şube ve fiyat alanları zaten doldurulmuştur.
+  - type: input
+    id: urun
+    attributes:
+      label: Ürün
+      placeholder: "ör. Colgate Optik Beyaz Diş Macunu 75 Ml"
+    validations:
+      required: true
+  - type: input
+    id: market
+    attributes:
+      label: Market
+      placeholder: "ör. CarrefourSA"
+    validations:
+      required: true
+  - type: input
+    id: sube
+    attributes:
+      label: Şube (sayfada görünen)
+      placeholder: "ör. Istanbul Acıbadem Hıper"
+  - type: input
+    id: fiyat
+    attributes:
+      label: Sayfada görünen fiyat
+      placeholder: "ör. ₺200,00 (normal ₺459,95, %57 indirim)"
+  - type: input
+    id: veri_saati
+    attributes:
+      label: Verinin saati
+      description: Kaynaktaki fiyat zamanı (kartta "veri …" olarak görünür).
+      placeholder: "ör. 27.11.2026 12:10"
+  - type: input
+    id: urun_id
+    attributes:
+      label: Ürün kimliği
+      description: Otomatik doldurulur; boş bırakabilirsiniz.
+  - type: dropdown
+    id: sorun
+    attributes:
+      label: Sorun ne?
+      options:
+        - Fiyat yanlış
+        - Ürün bu markette satılmıyor
+        - İndirim / kampanya bilgisi yanlış
+        - Diğer
+    validations:
+      required: true
+  - type: input
+    id: dogru_fiyat
+    attributes:
+      label: Sizin gördüğünüz fiyat (varsa)
+      placeholder: "ör. ₺449,95"
+  - type: dropdown
+    id: nerede
+    attributes:
+      label: Bu fiyatı nerede gördünüz?
+      options:
+        - Mağazada (şubede)
+        - Marketin online sitesinde / uygulamasında
+        - Başka bir yerde
+  - type: textarea
+    id: aciklama
+    attributes:
+      label: Açıklama
+      description: Tarih, şube, varsa fotoğraf veya bağlantı ekleyebilirsiniz.

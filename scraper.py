@@ -7,6 +7,11 @@ Kaynak: marketfiyati.org.tr (T.C. Ticaret Bakanlığı "Market Fiyatı" servisi)
 Aynı ürünün Migros, A101, ŞOK, BİM, CarrefourSA, Hakmar ve Tarım Kredi
 fiyatlarını tek kayıtta verir; ürün eşleştirmesini servis yapar.
 
+Fiyatlar servisin mağaza (şube) verisidir; online mağaza fiyatlarından ve
+diğer şubelerden farklı olabilir. Her fiyatta güncel fiyat (price), indirimsiz
+normal fiyat (regular_price) ve indirim oranı (discount_ratio) tutulur;
+"en ucuz" karşılaştırması varsayılan olarak normal fiyata göre yapılır.
+
 Kurallar:
 - Sahte / sabit yedek veri YOK. Veri gelmezse mevcut products_data.json
   olduğu gibi kalır ve betik hata koduyla çıkar.
@@ -28,6 +33,8 @@ API_URL = "https://api.marketfiyati.org.tr/api/v2/search"
 SOURCE_NAME = "marketfiyati.org.tr (T.C. Ticaret Bakanlığı Market Fiyatı)"
 SOURCE_URL = "https://marketfiyati.org.tr"
 DATA_FILE = "products_data.json"
+NOTICE = ("Fiyatlar T.C. Ticaret Bakanlığı marketfiyati.org.tr'nin mağaza (şube) verisidir; "
+          "online mağaza fiyatlarından ve diğer şubelerden farklı olabilir.")
 
 # Türkiye yaz/kış saati uygulamıyor: sabit UTC+3
 TR_TZ = timezone(timedelta(hours=3))
@@ -89,6 +96,15 @@ def market_label(code):
     return MARKET_NAMES.get(code, str(code).replace("_", " ").title())
 
 
+def regular_price_of(depot):
+    """İndirimsiz normal fiyat: kaynaktaki discountlessPrice, yoksa güncel fiyat."""
+    price = float(depot.get("price") or 0)
+    regular = depot.get("discountlessPrice")
+    if depot.get("discount") and isinstance(regular, (int, float)) and regular > price:
+        return float(regular)
+    return price
+
+
 class MarketFiyatScraper:
     def __init__(self):
         self.session = requests.Session()
@@ -125,14 +141,15 @@ class MarketFiyatScraper:
         if not pid or pid in self.products or not depots:
             return
 
-        # Her market için en ucuz şube fiyatı
+        # Her market için en düşük fiyatlı şube (eşitlikte normal fiyatı düşük olan)
         best = {}
         for d in depots:
             code = d.get("marketAdi")
             price = d.get("price")
             if not code or not isinstance(price, (int, float)) or price <= 0:
                 continue
-            if code not in best or price < best[code]["price"]:
+            key = (price, regular_price_of(d))
+            if code not in best or key < (best[code]["price"], regular_price_of(best[code])):
                 best[code] = d
         if len(best) < 2:
             return  # karşılaştırma için en az iki market gerekli
@@ -143,21 +160,31 @@ class MarketFiyatScraper:
         for code, d in best.items():
             if d.get("indexTime"):
                 self.index_times.add(d["indexTime"])
+            price = round(float(d["price"]), 2)
+            regular = round(regular_price_of(d), 2)
+            discounted = regular > price
+            ratio = d.get("discountRatio")
+            if discounted and not isinstance(ratio, (int, float)):
+                ratio = 1 - price / regular
             prices.append({
                 "market": market_label(code),
-                "price": round(float(d["price"]), 2),
+                "price": price,                        # kaynaktaki güncel fiyat (indirim dahil)
+                "regular_price": regular,              # kaynaktaki discountlessPrice; indirim yoksa price
+                "discount": discounted,
+                "discount_ratio": round(float(ratio), 4) if discounted else 0,
                 "brand": brand,
                 "full_name": name,
-                "store": (d.get("depotName") or "").strip(),
+                "store": " ".join((d.get("depotName") or "").split()),
                 "unit_price": d.get("unitPrice") or "",
-                "discount": bool(d.get("discount")),
                 "source_time": d.get("indexTime") or "",
                 "scraped_at": scraped_at,
             })
-        prices.sort(key=lambda p: (p["price"], MARKET_ORDER.index(p["market"]) if p["market"] in MARKET_ORDER else 99))
-
+        order = lambda p: MARKET_ORDER.index(p["market"]) if p["market"] in MARKET_ORDER else 99
+        # Varsayılan karşılaştırma normal (indirimsiz) fiyata göre
+        prices.sort(key=lambda p: (p["regular_price"], p["price"], order(p)))
         cheapest, dearest = prices[0], prices[-1]
-        savings = round(dearest["price"] - cheapest["price"], 2)
+        savings = round(dearest["regular_price"] - cheapest["regular_price"], 2)
+        deal = min(prices, key=lambda p: (p["price"], p["regular_price"], order(p)))
         self.products[pid] = {
             "id": pid,
             "name": name,
@@ -165,18 +192,21 @@ class MarketFiyatScraper:
             "size": item.get("refinedVolumeOrWeight") or "",
             "image": item.get("imageUrl") or "",
             "prices": prices,
-            "cheapest_market": cheapest["market"],
-            "cheapest_price": cheapest["price"],
+            "cheapest_market": cheapest["market"],         # normal fiyata göre
+            "cheapest_price": cheapest["regular_price"],
             "cheapest_brand": brand,
             "max_savings": savings,
-            "savings_percent": round(savings / dearest["price"] * 100, 1) if dearest["price"] else 0,
+            "savings_percent": round(savings / dearest["regular_price"] * 100, 1) if dearest["regular_price"] else 0,
+            "has_discount": any(p["discount"] for p in prices),
+            "best_deal_market": deal["market"],             # indirimler dahil
+            "best_deal_price": deal["price"],
         }
 
     @staticmethod
     def data_hash(products):
         """Zaman damgaları hariç fiyat verisinin parmak izi."""
         rows = sorted(
-            (p["id"], pr["market"], pr["price"], pr["store"], pr["discount"])
+            (p["id"], pr["market"], pr["price"], pr["regular_price"], pr["discount_ratio"], pr["store"])
             for p in products for pr in p["prices"]
         )
         return hashlib.sha256(json.dumps(rows, ensure_ascii=False).encode("utf-8")).hexdigest()
@@ -226,6 +256,8 @@ class MarketFiyatScraper:
         output = {
             "source": SOURCE_NAME,
             "source_url": SOURCE_URL,
+            "notice": NOTICE,
+            "price_basis": "regular_price",   # cheapest_* / max_savings normal (indirimsiz) fiyata göre
             "last_updated": scraped_at,
             "price_index_time": max(self.index_times, key=_parse_index_time) if self.index_times else "",
             "total_products": len(products),
