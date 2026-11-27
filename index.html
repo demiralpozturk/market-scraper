@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Market Fiyat Karşılaştırma — Migros, A101, ŞOK, BİM</title>
-    <meta name="description" content="Türkiye'de aynı ürünün Migros, A101, ŞOK, BİM, CarrefourSA ve Hakmar fiyatlarını karşılaştırın. Açık veri, 6 saatte bir güncellenir.">
+    <meta name="description" content="Türkiye'de aynı ürünün Migros, A101, ŞOK, BİM, CarrefourSA ve Hakmar şube fiyatlarını karşılaştırın. Açık veri, 6 saatte bir güncellenir.">
     <meta name="theme-color" content="#0f766e">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>">
     <style>
@@ -19,6 +19,8 @@
             --best: #15803d;
             --best-soft: #e8f6ec;
             --warn: #b45309;
+            --note-bg: #fff8e6;
+            --note-border: #f3d58a;
             --shadow: 0 1px 2px rgba(16, 24, 40, .06), 0 1px 3px rgba(16, 24, 40, .08);
             --radius: 14px;
         }
@@ -34,6 +36,8 @@
                 --best: #4ade80;
                 --best-soft: #12301c;
                 --warn: #fbbf24;
+                --note-bg: #2a2412;
+                --note-border: #5c4a1a;
                 --shadow: none;
             }
         }
@@ -55,10 +59,14 @@
             width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center;
             background: var(--accent); color: #fff; font-size: 19px;
         }
-        .tagline { color: var(--muted); margin-top: 6px; max-width: 680px; }
+        .tagline { color: var(--muted); margin-top: 6px; max-width: 720px; }
+        .notice {
+            margin-top: 14px; padding: 10px 14px; border-radius: 12px; font-size: 14px;
+            background: var(--note-bg); border: 1px solid var(--note-border); max-width: 900px;
+        }
 
         /* Özet */
-        .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 18px 0 4px; }
+        .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 16px 0 4px; }
         .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; box-shadow: var(--shadow); }
         .stat b { display: block; font-size: 20px; font-variant-numeric: tabular-nums; }
         .stat span { color: var(--muted); font-size: 13px; }
@@ -71,7 +79,7 @@
             padding: 12px 0 10px; margin-top: 10px;
             border-bottom: 1px solid var(--border);
         }
-        .controls { display: flex; gap: 10px; }
+        .controls { display: flex; gap: 10px; align-items: center; }
         .search {
             flex: 1; min-width: 0; height: 44px; padding: 0 14px 0 40px;
             border: 1px solid var(--border); border-radius: 12px;
@@ -82,7 +90,13 @@
             height: 44px; padding: 0 12px; border: 1px solid var(--border); border-radius: 12px;
             background: var(--surface); color: var(--text); font-size: 14px;
         }
-        .search:focus, select:focus, .chip:focus-visible, a:focus-visible {
+        .toggle {
+            display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 12px;
+            border: 1px solid var(--border); border-radius: 12px; background: var(--surface);
+            font-size: 14px; white-space: nowrap; cursor: pointer; user-select: none;
+        }
+        .toggle input { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; }
+        .search:focus, select:focus, .toggle:focus-within, .chip:focus-visible, a:focus-visible, summary:focus-visible {
             outline: 2px solid var(--accent); outline-offset: 2px;
         }
         .chips { display: flex; gap: 8px; overflow-x: auto; padding: 10px 0 2px; scrollbar-width: thin; }
@@ -117,16 +131,26 @@
         .row.best { background: var(--best-soft); outline: 1px solid color-mix(in srgb, var(--best) 45%, transparent); }
         .market { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 8px; font-weight: 600; font-size: 14px; }
         .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
-        .badge { font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 999px; }
+        .badge { font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 999px; white-space: nowrap; }
         .badge.best { background: var(--best); color: #fff; }
         .badge.disc { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
-        .price { font-weight: 700; font-variant-numeric: tabular-nums; font-size: 15.5px; text-align: right; }
-        .row.best .price { color: var(--best); }
+        .price { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+        .price .now { font-weight: 700; font-size: 15.5px; }
+        .price .was { color: var(--muted); font-size: 12.5px; margin-right: 6px; }
+        .row.best .price .now { color: var(--best); }
         .store { grid-column: 1 / -1; color: var(--muted); font-size: 12px; display: flex; justify-content: space-between; gap: 8px; }
-        .store span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .store span:last-child { flex: none; }
+        .when { grid-column: 1 / -1; color: var(--muted); font-size: 11.5px; }
         .saving { font-size: 13.5px; color: var(--muted); border-top: 1px dashed var(--border); padding-top: 10px; }
         .saving strong { color: var(--text); }
+        .saving .deal { display: block; margin-top: 4px; }
+        .report { font-size: 13px; color: var(--muted); }
+        .report summary { cursor: pointer; width: fit-content; color: var(--muted); }
+        .report summary:hover { color: var(--accent); }
+        .report p { margin: 6px 0 4px; }
+        .report ul { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+        .report a { text-decoration: none; }
+        .report a:hover { text-decoration: underline; }
 
         .state { text-align: center; color: var(--muted); padding: 60px 16px; grid-column: 1 / -1; }
 
@@ -141,6 +165,7 @@
             .controls { flex-wrap: wrap; }
             .search { flex-basis: 100%; }
             select { flex: 1; min-width: 0; }
+            .toggle { flex-basis: 100%; }
             .grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -148,7 +173,8 @@
 <body>
     <header class="top wrap">
         <div class="brand"><span class="brand-mark" aria-hidden="true">🛒</span> Market Fiyat Karşılaştırma</div>
-        <p class="tagline">Aynı ürünün marketlerdeki güncel fiyatları yan yana. Veriler resmi <a href="https://marketfiyati.org.tr" target="_blank" rel="noopener">marketfiyati.org.tr</a> servisinden alınır ve 6 saatte bir otomatik güncellenir.</p>
+        <p class="tagline">Aynı ürünün marketlerdeki fiyatları yan yana. Veriler resmi <a href="https://marketfiyati.org.tr" target="_blank" rel="noopener">marketfiyati.org.tr</a> servisinden alınır ve 6 saatte bir otomatik güncellenir.</p>
+        <p class="notice" role="note"><strong>Not:</strong> Fiyatlar T.C. Ticaret Bakanlığı marketfiyati.org.tr'nin mağaza (şube) verisidir; online mağaza fiyatlarından ve diğer şubelerden farklı olabilir. Yanlış gördüğünüz bir fiyatı kartlardaki <em>Hatalı fiyat bildir</em> bağlantısıyla bildirebilirsiniz.</p>
         <section class="stats" aria-label="Özet">
             <div class="stat"><b id="statProducts">–</b><span>karşılaştırılan ürün</span></div>
             <div class="stat"><b id="statMarkets">–</b><span>market</span></div>
@@ -170,6 +196,9 @@
                     <option value="price">En düşük fiyat</option>
                     <option value="name">Ada göre (A–Z)</option>
                 </select>
+                <label class="toggle" title="Kapalıyken en ucuz market normal (indirimsiz) fiyata göre seçilir">
+                    <input type="checkbox" id="withDiscounts"> İndirimleri dahil et
+                </label>
             </div>
             <div class="chips" id="chips" role="group" aria-label="Kategori filtresi"></div>
         </div>
@@ -186,29 +215,54 @@
         <div class="cols">
             <div>
                 <p id="source">Kaynak: marketfiyati.org.tr (T.C. Ticaret Bakanlığı Market Fiyatı)</p>
-                <p>Fiyatlar şubeye göre değişebilir; her satırda fiyatın alındığı şube gösterilir. Bu proje marketlerle veya Bakanlıkla bağlantılı değildir.</p>
+                <p>Fiyatlar mağaza (şube) verisidir; online mağaza fiyatlarından ve diğer şubelerden farklı olabilir. Bu proje marketlerle veya Bakanlıkla bağlantılı değildir.</p>
             </div>
             <div>
-                <p>Hazırlayan: <a href="https://github.com/demiralpozturk" target="_blank" rel="noopener">Demiralp Öztürk</a></p>
-                <p><a href="https://github.com/demiralpozturk/market-scraper" target="_blank" rel="noopener">GitHub'da kaynak kod</a> · <a href="products_data.json">JSON veri</a> · MIT lisansı</p>
+                <p>Creator: <strong>Demiralp Öztürk</strong> · <a href="https://github.com/demiralpozturk" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/demiralp-%C3%B6zt%C3%BCrk/" target="_blank" rel="noopener">LinkedIn</a></p>
+                <p><a href="https://github.com/demiralpozturk/market-scraper" target="_blank" rel="noopener">Kaynak kod</a> · <a href="products_data.json">JSON veri</a> · <a href="https://github.com/demiralpozturk/market-scraper/issues" target="_blank" rel="noopener">Bildirimler</a> · MIT lisansı</p>
             </div>
         </div>
     </footer>
 
     <script>
+        const REPO_URL = 'https://github.com/demiralpozturk/market-scraper';
         const MARKET_COLORS = {
             'Migros': '#f28c00', 'A101': '#00a0e3', 'ŞOK': '#f5c400', 'BİM': '#e30613',
             'CarrefourSA': '#1d4fa0', 'Hakmar': '#c8102e', 'Tarım Kredi': '#2e7d32'
         };
-        const tl = new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY', minimumFractionDigits: 2 });
+        const tlFmt = new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY', minimumFractionDigits: 2 });
+        const tl = v => tlFmt.format(Number(v) || 0);
         const collator = new Intl.Collator('tr');
-        const state = { data: null, products: [], q: '', category: '', market: '', sort: 'saving' };
+        const state = { data: null, products: [], q: '', category: '', market: '', sort: 'saving', withDiscounts: false };
 
         // Veriler dış kaynaktan geliyor: HTML'e basmadan önce kaçır
         const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
         const safeUrl = u => /^https:\/\//i.test(u || '') ? u : '';
         const norm = s => String(s ?? '').toLocaleLowerCase('tr');
         const $ = id => document.getElementById(id);
+
+        // Normal (indirimsiz) fiyat; eski veride regular_price yoksa güncel fiyat
+        const regularOf = x => (typeof x.regular_price === 'number' && x.regular_price > x.price) ? x.regular_price : x.price;
+        const discountPct = x => {
+            const r = regularOf(x);
+            return r > x.price ? Math.round((1 - x.price / r) * 100) : 0;
+        };
+        // Karşılaştırmada kullanılan değer: varsayılan normal fiyat, seçenek açıksa indirimli fiyat
+        const valueOf = x => state.withDiscounts ? x.price : regularOf(x);
+
+        function view(p) {
+            const rows = [...(p.prices || [])].sort((a, b) => valueOf(a) - valueOf(b) || a.price - b.price || collator.compare(a.market, b.market));
+            const min = rows.length ? valueOf(rows[0]) : 0;
+            const max = rows.length ? valueOf(rows[rows.length - 1]) : 0;
+            const saving = Math.round((max - min) * 100) / 100;
+            const deal = rows.reduce((m, r) => (r.price < m.price ? r : m), rows[0] || {});
+            return {
+                rows, min, saving,
+                percent: max ? saving / max * 100 : 0,
+                cheapest: rows.filter(r => valueOf(r) === min),
+                deal
+            };
+        }
 
         function relativeTime(date) {
             const mins = Math.round((Date.now() - date.getTime()) / 60000);
@@ -225,7 +279,7 @@
                 if (!res.ok) throw new Error(res.status);
                 state.data = await res.json();
                 state.products = Array.isArray(state.data.products) ? state.data.products : [];
-                renderStats();
+                renderStaticInfo();
                 renderFilters();
                 render();
             } catch (e) {
@@ -233,12 +287,10 @@
             }
         }
 
-        function renderStats() {
+        function renderStaticInfo() {
             const d = state.data;
             $('statProducts').textContent = state.products.length;
             $('statMarkets').textContent = (d.markets || []).length;
-            const top = state.products.reduce((m, p) => Math.max(m, p.max_savings || 0), 0);
-            $('statSaving').textContent = tl.format(top);
             const dt = new Date(d.last_updated);
             if (d.last_updated && !isNaN(dt)) {
                 $('statUpdated').textContent = relativeTime(dt);
@@ -266,52 +318,94 @@
         function filtered() {
             const q = norm(state.q).trim();
             const words = q ? q.split(/\s+/) : [];
-            const list = state.products.filter(p => {
-                if (state.category && p.category !== state.category) return false;
-                if (state.market && !(p.prices || []).some(x => x.market === state.market && x.price === p.cheapest_price)) return false;
-                if (!words.length) return true;
-                const hay = norm([p.name, p.category, p.size, p.cheapest_brand, ...(p.prices || []).map(x => x.market)].join(' '));
-                return words.every(w => hay.includes(w));
-            });
+            const list = [];
+            for (const p of state.products) {
+                if (state.category && p.category !== state.category) continue;
+                const v = view(p);
+                if (!v.rows.length) continue;
+                if (state.market && !v.cheapest.some(x => x.market === state.market)) continue;
+                if (words.length) {
+                    const hay = norm([p.name, p.category, p.size, p.cheapest_brand, ...v.rows.map(x => x.market)].join(' '));
+                    if (!words.every(w => hay.includes(w))) continue;
+                }
+                list.push({ p, v });
+            }
             const by = {
-                saving: (a, b) => (b.max_savings || 0) - (a.max_savings || 0),
-                percent: (a, b) => (b.savings_percent || 0) - (a.savings_percent || 0),
-                price: (a, b) => (a.cheapest_price || 0) - (b.cheapest_price || 0),
-                name: (a, b) => collator.compare(a.name, b.name)
+                saving: (a, b) => b.v.saving - a.v.saving,
+                percent: (a, b) => b.v.percent - a.v.percent,
+                price: (a, b) => a.v.min - b.v.min,
+                name: () => 0
             }[state.sort];
-            return list.sort((a, b) => by(a, b) || collator.compare(a.name, b.name));
+            return list.sort((a, b) => by(a, b) || collator.compare(a.p.name, b.p.name));
         }
 
-        function card(p) {
+        function priceText(x) {
+            const pct = discountPct(x);
+            return pct ? `${tl(x.price)} (normal ${tl(regularOf(x))}, %${pct} indirim)` : tl(x.price);
+        }
+
+        function issueUrl(p, x) {
+            const params = new URLSearchParams({
+                template: 'hatali-fiyat.yml',
+                title: `Hatalı fiyat: ${p.name} – ${x.market}`,
+                urun: p.name || '',
+                urun_id: p.id || '',
+                market: x.market || '',
+                sube: x.store || '',
+                fiyat: priceText(x),
+                veri_saati: x.source_time || ''
+            });
+            return `${REPO_URL}/issues/new?${params}`;
+        }
+
+        function card({ p, v }) {
             const img = safeUrl(p.image);
             const thumb = img
                 ? `<img class="thumb" src="${esc(img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.outerHTML='<div class=&quot;thumb ph&quot; aria-hidden=&quot;true&quot;>🛍️</div>'">`
                 : '<div class="thumb ph" aria-hidden="true">🛍️</div>';
             const meta = [p.cheapest_brand, p.size, p.category].filter(Boolean).map(esc).join(' · ');
-            const rows = (p.prices || []).map(x => {
-                const best = x.price === p.cheapest_price;
+            const rows = v.rows.map(x => {
+                const best = valueOf(x) === v.min;
+                const pct = discountPct(x);
                 const color = MARKET_COLORS[x.market] || '#94a3b8';
+                const when = x.source_time ? `<span class="when">Veri saati: ${esc(x.source_time)}</span>` : '';
                 return `<li class="row${best ? ' best' : ''}">
-                    <span class="market"><span class="dot" style="background:${color}" aria-hidden="true"></span>${esc(x.market)}${best ? '<span class="badge best">En ucuz</span>' : ''}${x.discount ? '<span class="badge disc">İndirimli</span>' : ''}</span>
-                    <span class="price">${tl.format(Number(x.price) || 0)}</span>
-                    <span class="store"><span title="${esc(x.store)}">${esc(x.store)}</span><span>${esc(x.unit_price)}</span></span>
+                    <span class="market"><span class="dot" style="background:${color}" aria-hidden="true"></span>${esc(x.market)}${best ? '<span class="badge best">En ucuz</span>' : ''}${pct ? `<span class="badge disc">%${pct} indirim</span>` : ''}</span>
+                    <span class="price">${pct ? `<s class="was" aria-label="Normal fiyat ${esc(tl(regularOf(x)))}">${tl(regularOf(x))}</s>` : ''}<span class="now">${tl(x.price)}</span></span>
+                    <span class="store"><span>${esc(x.store || 'Şube bilgisi yok')}</span><span>${esc(x.unit_price)}</span></span>
+                    ${when}
                 </li>`;
             }).join('');
-            const saving = p.max_savings > 0
-                ? `<div class="saving">En ucuzu <strong>${esc(p.cheapest_market)}</strong>: en pahalıya göre <strong>${tl.format(p.max_savings)}</strong> (%${Math.round(p.savings_percent || 0)}) tasarruf</div>`
-                : '<div class="saving">Fiyatlar eşit</div>';
+
+            const basis = state.withDiscounts ? 'İndirimler dahil' : 'Normal fiyata göre';
+            const names = v.cheapest.map(x => `<strong>${esc(x.market)}</strong>`).join(', ');
+            let saving = v.saving > 0
+                ? `${basis} en ucuzu ${names}: en pahalıya göre <strong>${tl(v.saving)}</strong> (%${Math.round(v.percent)}) daha ucuz.`
+                : `${basis} fiyatlar eşit.`;
+            if (!state.withDiscounts && v.deal && v.deal.price < v.min) {
+                saving += `<span class="deal">İndirimle en düşük: <strong>${esc(v.deal.market)} ${tl(v.deal.price)}</strong> (%${discountPct(v.deal)} indirim, ${esc(v.deal.store)}).</span>`;
+            }
+
+            const reports = v.rows.map(x =>
+                `<li><a href="${esc(issueUrl(p, x))}" target="_blank" rel="noopener">${esc(x.market)} · ${esc(tl(x.price))}${x.store ? ' · ' + esc(x.store) : ''}</a></li>`
+            ).join('');
+
             return `<article class="card">
                 <div class="card-head">${thumb}<div><div class="title">${esc(p.name)}</div><div class="meta">${meta}</div></div></div>
                 <ul class="prices">${rows}</ul>
-                ${saving}
+                <div class="saving">${saving}</div>
+                <details class="report"><summary>Hatalı fiyat bildir</summary><p>Hangi fiyat hatalı? (GitHub'da bilgileri doldurulmuş bir bildirim açılır)</p><ul>${reports}</ul></details>
             </article>`;
         }
 
         function render() {
             const list = filtered();
-            $('count').textContent = list.length === state.products.length
+            const top = state.products.reduce((m, p) => Math.max(m, view(p).saving), 0);
+            $('statSaving').textContent = tl(top);
+            const basis = state.withDiscounts ? 'en ucuz: indirimler dahil' : 'en ucuz: normal (indirimsiz) fiyata göre';
+            $('count').textContent = (list.length === state.products.length
                 ? `${list.length} ürün`
-                : `${state.products.length} üründen ${list.length} tanesi gösteriliyor`;
+                : `${state.products.length} üründen ${list.length} tanesi gösteriliyor`) + ` · ${basis}`;
             $('grid').innerHTML = list.length
                 ? list.map(card).join('')
                 : '<div class="state">Aramanıza uyan ürün bulunamadı.</div>';
@@ -320,6 +414,7 @@
         $('q').addEventListener('input', e => { state.q = e.target.value; render(); });
         $('sort').addEventListener('change', e => { state.sort = e.target.value; render(); });
         $('market').addEventListener('change', e => { state.market = e.target.value; render(); });
+        $('withDiscounts').addEventListener('change', e => { state.withDiscounts = e.target.checked; render(); });
         $('chips').addEventListener('click', e => {
             const btn = e.target.closest('.chip');
             if (!btn) return;

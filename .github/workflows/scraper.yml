@@ -54,13 +54,22 @@ jobs:
         for key in ("source", "last_updated", "markets", "products"):
             assert key in d, f"eksik alan: {key}"
         assert d["products"], "ürün listesi boş"
+        discounted = 0
         for p in d["products"]:
             assert p["name"] and p["category"], p
             assert len(p["prices"]) >= 2, f"tek fiyatlı ürün: {p['name']}"
-            prices = [x["price"] for x in p["prices"]]
-            assert prices == sorted(prices) and prices[0] > 0, f"fiyat sırası/değeri hatalı: {p['name']}"
-            assert p["cheapest_price"] == prices[0], f"en ucuz fiyat tutarsız: {p['name']}"
-        print(f"JSON şeması sağlam: {len(d['products'])} ürün, {len(d['markets'])} market")
+            for x in p["prices"]:
+                for key in ("market", "price", "regular_price", "discount", "discount_ratio", "store", "source_time"):
+                    assert key in x, f"eksik fiyat alanı {key}: {p['name']}"
+                assert 0 < x["price"] <= x["regular_price"], f"fiyat/normal fiyat hatalı: {p['name']} {x['market']}"
+                assert x["discount"] == (x["regular_price"] > x["price"]), f"indirim bayrağı tutarsız: {p['name']} {x['market']}"
+                discounted += x["discount"]
+            # Varsayılan karşılaştırma normal (indirimsiz) fiyata göre
+            regular = [x["regular_price"] for x in p["prices"]]
+            assert regular == sorted(regular), f"normal fiyat sırası hatalı: {p['name']}"
+            assert p["cheapest_price"] == regular[0], f"en ucuz fiyat tutarsız: {p['name']}"
+            assert p["best_deal_price"] == min(x["price"] for x in p["prices"]), f"indirimli en ucuz tutarsız: {p['name']}"
+        print(f"JSON şeması sağlam: {len(d['products'])} ürün, {len(d['markets'])} market, {discounted} indirimli fiyat")
         PY
 
     # Yalnızca fiyatlar değiştiyse commit (sadece zaman damgası için commit yok); PR'larda asla
