@@ -3,521 +3,332 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Market Fiyatı - En Ucuz Fiyatları Bul</title>
+    <title>Market Fiyat Karşılaştırma — Migros, A101, ŞOK, BİM</title>
+    <meta name="description" content="Türkiye'de aynı ürünün Migros, A101, ŞOK, BİM, CarrefourSA ve Hakmar fiyatlarını karşılaştırın. Açık veri, 6 saatte bir güncellenir.">
+    <meta name="theme-color" content="#0f766e">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg: #f6f7f9;
+            --surface: #ffffff;
+            --surface-2: #f1f3f6;
+            --text: #14181f;
+            --muted: #5f6b7a;
+            --border: #e2e6ec;
+            --accent: #0f766e;
+            --best: #15803d;
+            --best-soft: #e8f6ec;
+            --warn: #b45309;
+            --shadow: 0 1px 2px rgba(16, 24, 40, .06), 0 1px 3px rgba(16, 24, 40, .08);
+            --radius: 14px;
         }
-
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0d1117;
+                --surface: #161b22;
+                --surface-2: #1f2630;
+                --text: #e6edf3;
+                --muted: #8b98a8;
+                --border: #2a323d;
+                --accent: #2dd4bf;
+                --best: #4ade80;
+                --best-soft: #12301c;
+                --warn: #fbbf24;
+                --shadow: none;
+            }
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: #f5f7fa;
-            color: #333;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.45;
+            -webkit-font-smoothing: antialiased;
         }
+        a { color: var(--accent); }
+        .wrap { max-width: 1180px; margin: 0 auto; padding: 0 16px; }
 
-        /* Header */
-        .header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        /* Başlık */
+        header.top { padding-top: 28px; padding-bottom: 18px; }
+        .brand { display: flex; align-items: center; gap: 10px; font-weight: 750; font-size: 22px; letter-spacing: -.01em; }
+        .brand-mark {
+            width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center;
+            background: var(--accent); color: #fff; font-size: 19px;
         }
+        .tagline { color: var(--muted); margin-top: 6px; max-width: 680px; }
 
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        /* Özet */
+        .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 18px 0 4px; }
+        .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; box-shadow: var(--shadow); }
+        .stat b { display: block; font-size: 20px; font-variant-numeric: tabular-nums; }
+        .stat span { color: var(--muted); font-size: 13px; }
+
+        /* Araç çubuğu */
+        .toolbar {
+            position: sticky; top: 0; z-index: 10;
+            background: color-mix(in srgb, var(--bg) 92%, transparent);
+            backdrop-filter: blur(8px);
+            padding: 12px 0 10px; margin-top: 10px;
+            border-bottom: 1px solid var(--border);
         }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 24px;
-            font-weight: 700;
-            color: #2563eb;
+        .controls { display: flex; gap: 10px; }
+        .search {
+            flex: 1; min-width: 0; height: 44px; padding: 0 14px 0 40px;
+            border: 1px solid var(--border); border-radius: 12px;
+            background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%238b98a8' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E") no-repeat 13px center;
+            color: var(--text); font-size: 16px;
         }
-
-        .search-container {
-            flex: 1;
-            max-width: 600px;
-            margin: 0 20px;
+        select {
+            height: 44px; padding: 0 12px; border: 1px solid var(--border); border-radius: 12px;
+            background: var(--surface); color: var(--text); font-size: 14px;
         }
-
-        .search-box {
-            width: 100%;
-            padding: 12px 20px;
-            border: 2px solid #e5e7eb;
-            border-radius: 25px;
-            font-size: 15px;
-            transition: all 0.3s;
+        .search:focus, select:focus, .chip:focus-visible, a:focus-visible {
+            outline: 2px solid var(--accent); outline-offset: 2px;
         }
-
-        .search-box:focus {
-            outline: none;
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        .chips { display: flex; gap: 8px; overflow-x: auto; padding: 10px 0 2px; scrollbar-width: thin; }
+        .chip {
+            flex: none; border: 1px solid var(--border); background: var(--surface); color: var(--text);
+            border-radius: 999px; padding: 6px 12px; font-size: 13px; cursor: pointer; white-space: nowrap;
         }
+        .chip small { color: var(--muted); margin-left: 4px; }
+        .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+        .chip[aria-pressed="true"] small { color: rgba(255,255,255,.8); }
+        .result-count { color: var(--muted); font-size: 13px; margin: 14px 0 10px; }
 
-        /* Stats */
-        .stats-bar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
+        /* Ürün kartları */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+        .card {
+            background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 16px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 12px;
         }
-
-        .stats-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            text-align: center;
+        .card-head { display: flex; gap: 12px; align-items: flex-start; }
+        .thumb {
+            width: 52px; height: 52px; flex: none; border-radius: 10px; background: #fff;
+            border: 1px solid var(--border); object-fit: contain;
         }
-
-        .stat-item h3 {
-            font-size: 32px;
-            margin-bottom: 5px;
+        .thumb.ph { display: grid; place-items: center; font-size: 22px; background: var(--surface-2); }
+        .title { font-weight: 650; font-size: 15.5px; }
+        .meta { color: var(--muted); font-size: 12.5px; margin-top: 2px; }
+        .prices { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+        .row {
+            display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2px 10px;
+            padding: 8px 10px; border-radius: 10px; background: var(--surface-2);
         }
+        .row.best { background: var(--best-soft); outline: 1px solid color-mix(in srgb, var(--best) 45%, transparent); }
+        .market { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 8px; font-weight: 600; font-size: 14px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+        .badge { font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 999px; }
+        .badge.best { background: var(--best); color: #fff; }
+        .badge.disc { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+        .price { font-weight: 700; font-variant-numeric: tabular-nums; font-size: 15.5px; text-align: right; }
+        .row.best .price { color: var(--best); }
+        .store { grid-column: 1 / -1; color: var(--muted); font-size: 12px; display: flex; justify-content: space-between; gap: 8px; }
+        .store span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .store span:last-child { flex: none; }
+        .saving { font-size: 13.5px; color: var(--muted); border-top: 1px dashed var(--border); padding-top: 10px; }
+        .saving strong { color: var(--text); }
 
-        .stat-item p {
-            opacity: 0.9;
-            font-size: 14px;
-        }
+        .state { text-align: center; color: var(--muted); padding: 60px 16px; grid-column: 1 / -1; }
 
-        /* Main Content */
-        .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
+        footer { margin: 40px auto 0; padding: 24px 16px 36px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13.5px; }
+        footer .cols { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; }
+        footer .cols > div { max-width: 640px; }
+        footer p + p { margin-top: 4px; }
 
-        .section-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #1f2937;
-        }
-
-        /* Product Cards */
-        .products-grid {
-            display: grid;
-            gap: 20px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-        }
-
-        .product-card:hover {
-            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-            transform: translateY(-2px);
-        }
-
-        .product-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #f3f4f6;
-        }
-
-        .product-name {
-            font-size: 18px;
-            font-weight: 600;
-            color: #111827;
-            flex: 1;
-        }
-
-        .category-tag {
-            background: #eff6ff;
-            color: #2563eb;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        /* Price Cards */
-        .price-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 12px;
-            margin-bottom: 15px;
-        }
-
-        .price-card {
-            padding: 15px;
-            border: 2px solid #e5e7eb;
-            border-radius: 10px;
-            text-align: center;
-            transition: all 0.2s;
-        }
-
-        .price-card.best {
-            background: linear-gradient(135deg, #10b981, #059669);
-            border-color: #059669;
-            color: white;
-            transform: scale(1.05);
-            position: relative;
-        }
-
-        .price-card.best::before {
-            content: "🏆 EN UCUZ";
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #fbbf24;
-            color: #78350f;
-            padding: 2px 10px;
-            border-radius: 10px;
-            font-size: 11px;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .market-logo {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #4b5563;
-        }
-
-        .price-card.best .market-logo {
-            color: white;
-        }
-
-        .brand-info {
-            font-size: 12px;
-            color: #6b7280;
-            margin-bottom: 8px;
-            font-style: italic;
-        }
-
-        .price-card.best .brand-info {
-            color: rgba(255,255,255,0.9);
-        }
-
-        .price-amount {
-            font-size: 24px;
-            font-weight: 700;
-            color: #111827;
-        }
-
-        .price-card.best .price-amount {
-            color: white;
-        }
-
-        .price-meta {
-            font-size: 11px;
-            color: #6b7280;
-            margin-top: 6px;
-            line-height: 1.4;
-        }
-
-        .price-card.best .price-meta {
-            color: rgba(255,255,255,0.9);
-        }
-
-        .discount-tag {
-            display: inline-block;
-            background: #fee2e2;
-            color: #b91c1c;
-            border-radius: 6px;
-            padding: 1px 6px;
-            font-size: 11px;
-            font-weight: 600;
-            margin-top: 4px;
-        }
-
-        .product-size {
-            font-size: 13px;
-            color: #6b7280;
-            font-weight: 400;
-            margin-left: 6px;
-        }
-
-        .source-note {
-            margin-top: 8px;
-            font-size: 13px;
-        }
-
-        .source-note a {
-            color: #2563eb;
-        }
-
-        /* Savings Banner */
-        .savings-info {
-            background: linear-gradient(135deg, #fef3c7, #fde68a);
-            border: 2px solid #fbbf24;
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-            font-weight: 600;
-            color: #78350f;
-        }
-
-        .savings-info.high {
-            background: linear-gradient(135deg, #fecaca, #fca5a5);
-            border-color: #ef4444;
-            color: #7f1d1d;
-        }
-
-        .savings-amount {
-            font-size: 20px;
-            margin: 0 5px;
-        }
-
-        /* Loading & Empty States */
-        .loading, .empty-state {
-            text-align: center;
-            padding: 80px 20px;
-            color: #6b7280;
-        }
-
-        .loading {
-            font-size: 18px;
-        }
-
-        /* Footer */
-        .footer {
-            background: white;
-            margin-top: 60px;
-            padding: 30px 20px;
-            text-align: center;
-            border-top: 1px solid #e5e7eb;
-            color: #6b7280;
-        }
-
-        .last-update {
-            margin-top: 10px;
-            font-size: 14px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .search-container {
-                margin: 0;
-                width: 100%;
-            }
-
-            .price-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        @media (max-width: 720px) {
+            header.top { padding-top: 18px; }
+            .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .controls { flex-wrap: wrap; }
+            .search { flex-basis: 100%; }
+            select { flex: 1; min-width: 0; }
+            .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <div class="header">
-        <div class="header-content">
-            <div class="logo">
-                🛒 Market Fiyatı
+    <header class="top wrap">
+        <div class="brand"><span class="brand-mark" aria-hidden="true">🛒</span> Market Fiyat Karşılaştırma</div>
+        <p class="tagline">Aynı ürünün marketlerdeki güncel fiyatları yan yana. Veriler resmi <a href="https://marketfiyati.org.tr" target="_blank" rel="noopener">marketfiyati.org.tr</a> servisinden alınır ve 6 saatte bir otomatik güncellenir.</p>
+        <section class="stats" aria-label="Özet">
+            <div class="stat"><b id="statProducts">–</b><span>karşılaştırılan ürün</span></div>
+            <div class="stat"><b id="statMarkets">–</b><span>market</span></div>
+            <div class="stat"><b id="statSaving">–</b><span>en büyük fiyat farkı</span></div>
+            <div class="stat"><b id="statUpdated">–</b><span>son fiyat güncellemesi</span></div>
+        </section>
+    </header>
+
+    <div class="toolbar">
+        <div class="wrap">
+            <div class="controls">
+                <input id="q" class="search" type="search" placeholder="Ürün, marka veya market ara…" autocomplete="off" aria-label="Ürün, marka veya market ara">
+                <select id="market" aria-label="En ucuz market filtresi">
+                    <option value="">Tüm marketler</option>
+                </select>
+                <select id="sort" aria-label="Sıralama">
+                    <option value="saving">En çok tasarruf</option>
+                    <option value="percent">En yüksek fark (%)</option>
+                    <option value="price">En düşük fiyat</option>
+                    <option value="name">Ada göre (A–Z)</option>
+                </select>
             </div>
-            <div class="search-container">
-                <input type="text" class="search-box" id="searchInput" placeholder="Ürün, marka veya market ara...">
-            </div>
+            <div class="chips" id="chips" role="group" aria-label="Kategori filtresi"></div>
         </div>
     </div>
 
-    <!-- Stats Bar -->
-    <div class="stats-bar">
-        <div class="stats-content" id="statsBar">
-            <div class="stat-item">
-                <h3 id="statProducts">-</h3>
-                <p>Ürün Karşılaştırması</p>
+    <main class="wrap">
+        <p class="result-count" id="count" aria-live="polite"></p>
+        <div class="grid" id="grid">
+            <div class="state">Fiyatlar yükleniyor…</div>
+        </div>
+    </main>
+
+    <footer class="wrap">
+        <div class="cols">
+            <div>
+                <p id="source">Kaynak: marketfiyati.org.tr (T.C. Ticaret Bakanlığı Market Fiyatı)</p>
+                <p>Fiyatlar şubeye göre değişebilir; her satırda fiyatın alındığı şube gösterilir. Bu proje marketlerle veya Bakanlıkla bağlantılı değildir.</p>
             </div>
-            <div class="stat-item">
-                <h3 id="statMarkets">-</h3>
-                <p>Farklı Market</p>
-            </div>
-            <div class="stat-item">
-                <h3 id="statSavings">-</h3>
-                <p>Toplam Tasarruf Fırsatı</p>
+            <div>
+                <p>Hazırlayan: <a href="https://github.com/demiralpozturk" target="_blank" rel="noopener">Demiralp Öztürk</a></p>
+                <p><a href="https://github.com/demiralpozturk/market-scraper" target="_blank" rel="noopener">GitHub'da kaynak kod</a> · <a href="products_data.json">JSON veri</a> · MIT lisansı</p>
             </div>
         </div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="container">
-        <h2 class="section-title">💰 En Çok Tasarruf Fırsatları</h2>
-        <div class="products-grid" id="productsContainer">
-            <div class="loading">⏳ Fiyatlar yükleniyor...</div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-        <div>Market Fiyatı - En ucuz fiyatları bul, akıllıca alışveriş yap!</div>
-        <div class="source-note" id="sourceNote"></div>
-        <div class="last-update" id="lastUpdate"></div>
-    </div>
+    </footer>
 
     <script>
-        let allProducts = [];
-        let productsData = null;
+        const MARKET_COLORS = {
+            'Migros': '#f28c00', 'A101': '#00a0e3', 'ŞOK': '#f5c400', 'BİM': '#e30613',
+            'CarrefourSA': '#1d4fa0', 'Hakmar': '#c8102e', 'Tarım Kredi': '#2e7d32'
+        };
+        const tl = new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY', minimumFractionDigits: 2 });
+        const collator = new Intl.Collator('tr');
+        const state = { data: null, products: [], q: '', category: '', market: '', sort: 'saving' };
 
         // Veriler dış kaynaktan geliyor: HTML'e basmadan önce kaçır
-        function esc(value) {
-            return String(value ?? '').replace(/[&<>"']/g, c => ({
-                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-            }[c]));
+        const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        const safeUrl = u => /^https:\/\//i.test(u || '') ? u : '';
+        const norm = s => String(s ?? '').toLocaleLowerCase('tr');
+        const $ = id => document.getElementById(id);
+
+        function relativeTime(date) {
+            const mins = Math.round((Date.now() - date.getTime()) / 60000);
+            if (mins < 1) return 'az önce';
+            if (mins < 60) return `${mins} dk önce`;
+            const hours = Math.round(mins / 60);
+            if (hours < 24) return `${hours} sa önce`;
+            return `${Math.round(hours / 24)} gün önce`;
         }
 
-        async function loadData() {
+        async function load() {
             try {
-                const response = await fetch('products_data.json', { cache: 'no-store' });
-                productsData = await response.json();
-                allProducts = productsData.products || [];
-                
-                updateStats();
-                displayProducts(allProducts);
-                updateLastUpdate();
-            } catch (error) {
-                document.getElementById('productsContainer').innerHTML = `
-                    <div class="empty-state">
-                        <h3>😕 Veriler yüklenemedi</h3>
-                        <p>Lütfen products_data.json dosyasının mevcut olduğundan emin olun.</p>
-                    </div>
-                `;
+                const res = await fetch('products_data.json', { cache: 'no-store' });
+                if (!res.ok) throw new Error(res.status);
+                state.data = await res.json();
+                state.products = Array.isArray(state.data.products) ? state.data.products : [];
+                renderStats();
+                renderFilters();
+                render();
+            } catch (e) {
+                $('grid').innerHTML = '<div class="state">Veriler yüklenemedi. Lütfen sayfayı yenileyin.</div>';
             }
         }
 
-        function updateStats() {
-            if (!productsData) return;
-
-            const totalSavings = allProducts.reduce((sum, p) => sum + (p.max_savings || 0), 0);
-
-            document.getElementById('statProducts').textContent = productsData.total_products || 0;
-            document.getElementById('statMarkets').textContent = productsData.markets?.length || 0;
-            document.getElementById('statSavings').textContent = `₺${totalSavings.toFixed(0)}`;
+        function renderStats() {
+            const d = state.data;
+            $('statProducts').textContent = state.products.length;
+            $('statMarkets').textContent = (d.markets || []).length;
+            const top = state.products.reduce((m, p) => Math.max(m, p.max_savings || 0), 0);
+            $('statSaving').textContent = tl.format(top);
+            const dt = new Date(d.last_updated);
+            if (d.last_updated && !isNaN(dt)) {
+                $('statUpdated').textContent = relativeTime(dt);
+                $('statUpdated').title = dt.toLocaleString('tr-TR', { dateStyle: 'long', timeStyle: 'short' }) +
+                    (d.price_index_time ? ` · kaynaktaki fiyat zamanı: ${d.price_index_time}` : '');
+            }
+            if (d.source) {
+                const url = safeUrl(d.source_url);
+                $('source').innerHTML = 'Kaynak: ' + (url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(d.source)}</a>` : esc(d.source)) +
+                    (d.price_index_time ? ` · fiyat zamanı ${esc(d.price_index_time)}` : '');
+            }
         }
 
-        function displayProducts(products) {
-            if (!products || products.length === 0) {
-                document.getElementById('productsContainer').innerHTML = `
-                    <div class="empty-state">
-                        <h3>📦 Henüz ürün verisi yok</h3>
-                        <p>Scraper çalıştırıldığında veriler burada görünecek.</p>
-                    </div>
-                `;
-                return;
-            }
+        function renderFilters() {
+            const counts = new Map();
+            for (const p of state.products) counts.set(p.category, (counts.get(p.category) || 0) + 1);
+            const cats = [...counts.entries()].sort((a, b) => b[1] - a[1] || collator.compare(a[0], b[0]));
+            $('chips').innerHTML = [`<button class="chip" data-cat="" aria-pressed="true">Tümü<small>${state.products.length}</small></button>`]
+                .concat(cats.map(([c, n]) => `<button class="chip" data-cat="${esc(c)}" aria-pressed="false">${esc(c)}<small>${n}</small></button>`))
+                .join('');
+            $('market').innerHTML = '<option value="">Tüm marketler</option>' +
+                (state.data.markets || []).map(m => `<option value="${esc(m)}">En ucuzu ${esc(m)} olanlar</option>`).join('');
+        }
 
-            const html = products.map(product => {
-                const maxSavings = product.max_savings || 0;
-                const savingsClass = maxSavings > 20 ? 'high' : '';
+        function filtered() {
+            const q = norm(state.q).trim();
+            const words = q ? q.split(/\s+/) : [];
+            const list = state.products.filter(p => {
+                if (state.category && p.category !== state.category) return false;
+                if (state.market && !(p.prices || []).some(x => x.market === state.market && x.price === p.cheapest_price)) return false;
+                if (!words.length) return true;
+                const hay = norm([p.name, p.category, p.size, p.cheapest_brand, ...(p.prices || []).map(x => x.market)].join(' '));
+                return words.every(w => hay.includes(w));
+            });
+            const by = {
+                saving: (a, b) => (b.max_savings || 0) - (a.max_savings || 0),
+                percent: (a, b) => (b.savings_percent || 0) - (a.savings_percent || 0),
+                price: (a, b) => (a.cheapest_price || 0) - (b.cheapest_price || 0),
+                name: (a, b) => collator.compare(a.name, b.name)
+            }[state.sort];
+            return list.sort((a, b) => by(a, b) || collator.compare(a.name, b.name));
+        }
 
-                const pricesHtml = (product.prices || []).map(price => {
-                    const isBest = price.market === product.cheapest_market;
-                    const meta = [price.store, price.unit_price].filter(Boolean).map(esc).join('<br>');
-                    return `
-                        <div class="price-card ${isBest ? 'best' : ''}">
-                            <div class="market-logo">${esc(price.market)}</div>
-                            ${price.brand ? `<div class="brand-info">🏷️ ${esc(price.brand)}</div>` : ''}
-                            <div class="price-amount">₺${Number(price.price).toFixed(2)}</div>
-                            ${price.discount ? `<div class="discount-tag">İndirimli</div>` : ''}
-                            ${meta ? `<div class="price-meta">${meta}</div>` : ''}
-                        </div>
-                    `;
-                }).join('');
-
-                return `
-                    <div class="product-card">
-                        <div class="product-header">
-                            <div class="product-name">${esc(product.name)}${product.size ? `<span class="product-size">${esc(product.size)}</span>` : ''}</div>
-                            <div class="category-tag">${esc(product.category)}</div>
-                        </div>
-
-                        <div class="price-grid">
-                            ${pricesHtml}
-                        </div>
-
-                        ${maxSavings > 0 ? `
-                            <div class="savings-info ${savingsClass}">
-                                💰 <strong>${esc(product.cheapest_market)}</strong>'de
-                                ${product.cheapest_brand ? `<strong>${esc(product.cheapest_brand)}</strong>` : ''}
-                                alarak <span class="savings-amount">₺${maxSavings.toFixed(2)}</span> tasarruf!
-                                ${product.savings_percent ? ` (%${product.savings_percent.toFixed(0)} indirim)` : ''}
-                            </div>
-                        ` : ''}
-                    </div>
-                `;
+        function card(p) {
+            const img = safeUrl(p.image);
+            const thumb = img
+                ? `<img class="thumb" src="${esc(img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.outerHTML='<div class=&quot;thumb ph&quot; aria-hidden=&quot;true&quot;>🛍️</div>'">`
+                : '<div class="thumb ph" aria-hidden="true">🛍️</div>';
+            const meta = [p.cheapest_brand, p.size, p.category].filter(Boolean).map(esc).join(' · ');
+            const rows = (p.prices || []).map(x => {
+                const best = x.price === p.cheapest_price;
+                const color = MARKET_COLORS[x.market] || '#94a3b8';
+                return `<li class="row${best ? ' best' : ''}">
+                    <span class="market"><span class="dot" style="background:${color}" aria-hidden="true"></span>${esc(x.market)}${best ? '<span class="badge best">En ucuz</span>' : ''}${x.discount ? '<span class="badge disc">İndirimli</span>' : ''}</span>
+                    <span class="price">${tl.format(Number(x.price) || 0)}</span>
+                    <span class="store"><span title="${esc(x.store)}">${esc(x.store)}</span><span>${esc(x.unit_price)}</span></span>
+                </li>`;
             }).join('');
-
-            document.getElementById('productsContainer').innerHTML = html;
+            const saving = p.max_savings > 0
+                ? `<div class="saving">En ucuzu <strong>${esc(p.cheapest_market)}</strong>: en pahalıya göre <strong>${tl.format(p.max_savings)}</strong> (%${Math.round(p.savings_percent || 0)}) tasarruf</div>`
+                : '<div class="saving">Fiyatlar eşit</div>';
+            return `<article class="card">
+                <div class="card-head">${thumb}<div><div class="title">${esc(p.name)}</div><div class="meta">${meta}</div></div></div>
+                <ul class="prices">${rows}</ul>
+                ${saving}
+            </article>`;
         }
 
-        function updateLastUpdate() {
-            if (!productsData) return;
-
-            const date = new Date(productsData.last_updated);
-            const formatted = date.toLocaleString('tr-TR', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-
-            const indexTime = productsData.price_index_time ? ` · Kaynaktaki fiyat zamanı: ${productsData.price_index_time}` : '';
-            document.getElementById('lastUpdate').textContent = `Son fiyat değişikliği: ${formatted}${indexTime}`;
-
-            if (productsData.source) {
-                const url = /^https:\/\//.test(productsData.source_url || '') ? productsData.source_url : '';
-                document.getElementById('sourceNote').innerHTML = url
-                    ? `Kaynak: <a href="${esc(url)}" target="_blank" rel="noopener">${esc(productsData.source)}</a> · Fiyatlar şubeye göre değişebilir.`
-                    : `Kaynak: ${esc(productsData.source)}`;
-            }
+        function render() {
+            const list = filtered();
+            $('count').textContent = list.length === state.products.length
+                ? `${list.length} ürün`
+                : `${state.products.length} üründen ${list.length} tanesi gösteriliyor`;
+            $('grid').innerHTML = list.length
+                ? list.map(card).join('')
+                : '<div class="state">Aramanıza uyan ürün bulunamadı.</div>';
         }
 
-        // Search
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase();
-            
-            if (!term) {
-                displayProducts(allProducts);
-                return;
-            }
-
-            const filtered = allProducts.filter(p => {
-                return p.name.toLowerCase().includes(term) ||
-                       p.category.toLowerCase().includes(term) ||
-                       p.prices.some(pr => 
-                           (pr.brand && pr.brand.toLowerCase().includes(term)) ||
-                           pr.market.toLowerCase().includes(term)
-                       );
-            });
-
-            displayProducts(filtered);
+        $('q').addEventListener('input', e => { state.q = e.target.value; render(); });
+        $('sort').addEventListener('change', e => { state.sort = e.target.value; render(); });
+        $('market').addEventListener('change', e => { state.market = e.target.value; render(); });
+        $('chips').addEventListener('click', e => {
+            const btn = e.target.closest('.chip');
+            if (!btn) return;
+            state.category = btn.dataset.cat;
+            for (const b of $('chips').children) b.setAttribute('aria-pressed', String(b === btn));
+            render();
         });
 
-        // Load on start
-        window.onload = loadData;
-
-        // Auto refresh every 2 minutes
-        setInterval(loadData, 120000);
+        load();
     </script>
 </body>
 </html>
