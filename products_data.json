@@ -3,10 +3,10 @@
   "source_url": "https://marketfiyati.org.tr",
   "notice": "Fiyatlar T.C. Ticaret Bakanlığı marketfiyati.org.tr'nin mağaza (şube) verisidir; online mağaza fiyatlarından ve diğer şubelerden farklı olabilir.",
   "price_basis": "regular_price",
-  "last_updated": "2026-11-27T17:19:20+03:00",
-  "price_index_time": "27.11.2026 12:11",
-  "total_products": 72,
-  "total_scraped": 174,
+  "last_updated": "2026-11-28T18:35:05+03:00",
+  "price_index_time": "28.11.2026 07:45",
+  "total_products": 75,
+  "total_scraped": 182,
   "total_requests": 22,
   "markets": [
     "Migros",
@@ -14,9 +14,10 @@
     "ŞOK",
     "BİM",
     "CarrefourSA",
-    "Hakmar"
+    "Hakmar",
+    "Tarım Kredi"
   ],
-  "data_hash": "1e08bbfc39a3b444b8462d5f5ad7448ef3774f0b8fb2dcc6e9c7e72390e9b0e9",
+  "data_hash": "40229e045bc878ba3cef7609d304fbaa274b65ac82d695367fd76c9c783eb28d",
   "products": [
     {
       "id": "0YR4",
@@ -35,8 +36,8 @@
           "full_name": "Yudum Egemden Riviera Zeytinyağı 1 Lt",
           "store": "Çiçekçi Üsküdar",
           "unit_price": "209,00 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "A101",
@@ -48,8 +49,8 @@
           "full_name": "Yudum Egemden Riviera Zeytinyağı 1 Lt",
           "store": "Çiçekçi Üsküdar Istanbul",
           "unit_price": "299,50 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -61,8 +62,8 @@
           "full_name": "Yudum Egemden Riviera Zeytinyağı 1 Lt",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "422,95 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "BİM",
@@ -73,6 +74,161 @@
       "has_discount": false,
       "best_deal_market": "BİM",
       "best_deal_price": 209.0
+    },
+    {
+      "id": "0MRB",
+      "name": "Elidor Güçlü Parlaklık Şampuan 650 Ml",
+      "category": "Kişisel Bakım",
+      "size": "650 ML",
+      "image": "https://cdn.marketfiyati.org.tr/tarim_kredi/108817.jpg",
+      "prices": [
+        {
+          "market": "Tarım Kredi",
+          "price": 199.9,
+          "regular_price": 199.9,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Elidor",
+          "full_name": "Elidor Güçlü Parlaklık Şampuan 650 Ml",
+          "store": "Istanbul Kadıköy Market",
+          "unit_price": "307,54 ₺/Lt",
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        },
+        {
+          "market": "A101",
+          "price": 329.0,
+          "regular_price": 329.0,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Elidor",
+          "full_name": "Elidor Güçlü Parlaklık Şampuan 650 Ml",
+          "store": "Çiçekçi Üsküdar Istanbul",
+          "unit_price": "506,15 ₺/Lt",
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        }
+      ],
+      "cheapest_market": "Tarım Kredi",
+      "cheapest_price": 199.9,
+      "cheapest_brand": "Elidor",
+      "max_savings": 129.1,
+      "savings_percent": 39.2,
+      "has_discount": false,
+      "best_deal_market": "Tarım Kredi",
+      "best_deal_price": 199.9
+    },
+    {
+      "id": "1UAA",
+      "name": "Ekici Beyaz Peynir 500 Gr",
+      "category": "Süt Ürünleri ve Kahvaltılık",
+      "size": "500 GR",
+      "image": "https://cdn.marketfiyati.org.tr/carrefourimages/30079227.png",
+      "prices": [
+        {
+          "market": "Hakmar",
+          "price": 215.0,
+          "regular_price": 215.0,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Ekici",
+          "full_name": "Ekici Beyaz Peynir 500 Gr",
+          "store": "Ahmediye Üsküdar",
+          "unit_price": "430,00 ₺/Kg",
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        },
+        {
+          "market": "Migros",
+          "price": 224.95,
+          "regular_price": 224.95,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Ekici",
+          "full_name": "Ekici Beyaz Peynir 500 Gr",
+          "store": "Çiçekçi M Migros",
+          "unit_price": "449,90 ₺/Kg",
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        },
+        {
+          "market": "CarrefourSA",
+          "price": 269.95,
+          "regular_price": 329.95,
+          "discount": true,
+          "discount_ratio": 0.1818,
+          "brand": "Ekici",
+          "full_name": "Ekici Beyaz Peynir 500 Gr",
+          "store": "Istanbul Kadıköy Moda Bademalt",
+          "unit_price": "539,90 ₺/Kg",
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        }
+      ],
+      "cheapest_market": "Hakmar",
+      "cheapest_price": 215.0,
+      "cheapest_brand": "Ekici",
+      "max_savings": 114.95,
+      "savings_percent": 34.8,
+      "has_discount": true,
+      "best_deal_market": "Hakmar",
+      "best_deal_price": 215.0
+    },
+    {
+      "id": "1ZHR",
+      "name": "Tat Domates Salçası 1.5 Kg",
+      "category": "Temel Gıda",
+      "size": "1.5 KG",
+      "image": "https://cdn.marketfiyati.org.tr/carrefourimages/30393338.png",
+      "prices": [
+        {
+          "market": "BİM",
+          "price": 139.0,
+          "regular_price": 139.0,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Tat",
+          "full_name": "Tat Domates Salçası 1.5 Kg",
+          "store": "Çiçekçi Üsküdar",
+          "unit_price": "92,67 ₺/Kg",
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        },
+        {
+          "market": "Migros",
+          "price": 249.95,
+          "regular_price": 249.95,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Tat",
+          "full_name": "Tat Domates Salçası 1.5 Kg",
+          "store": "Çiçekçi M Migros",
+          "unit_price": "166,63 ₺/Kg",
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        },
+        {
+          "market": "CarrefourSA",
+          "price": 249.95,
+          "regular_price": 249.95,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Tat",
+          "full_name": "Tat Domates Salçası 1.5 Kg",
+          "store": "Istanbul Üsküdar Salacak Mını",
+          "unit_price": "166,63 ₺/Kg",
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        }
+      ],
+      "cheapest_market": "BİM",
+      "cheapest_price": 139.0,
+      "cheapest_brand": "Tat",
+      "max_savings": 110.95,
+      "savings_percent": 44.4,
+      "has_discount": false,
+      "best_deal_market": "BİM",
+      "best_deal_price": 139.0
     },
     {
       "id": "1ZVP",
@@ -91,8 +247,8 @@
           "full_name": "Hasata Basmati Pirinç 1 Kg",
           "store": "Adem Yavuz Ümraniye Istanbul",
           "unit_price": "132,50 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -104,8 +260,8 @@
           "full_name": "Hasata Basmati Pirinç 1 Kg",
           "store": "Çiçekçi M Migros",
           "unit_price": "239,95 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -117,8 +273,8 @@
           "full_name": "Hasata Basmati Pirinç 1 Kg",
           "store": "Istanbul Moda Caddesı Mını",
           "unit_price": "239,95 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "A101",
@@ -147,8 +303,8 @@
           "full_name": "Colgate Optik Beyaz Diş Macunu 75 Ml",
           "store": "Kadıköy Caferağa M Migros",
           "unit_price": "4.759,33 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -160,8 +316,8 @@
           "full_name": "Colgate Optik Beyaz Diş Macunu 75 Ml",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "2.666,67 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -190,21 +346,21 @@
           "full_name": "Lipton Yellow Label Çay 1 Kg",
           "store": "Şok Minitamer Yeni",
           "unit_price": "349,00 ₺/Kg",
-          "source_time": "27.11.2026 12:07",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:42",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "A101",
-          "price": 355.0,
-          "regular_price": 355.0,
+          "price": 439.5,
+          "regular_price": 439.5,
           "discount": false,
           "discount_ratio": 0,
           "brand": "Lipton",
           "full_name": "Lipton Yellow Label Çay 1 Kg",
           "store": "Çiçekçi Üsküdar Istanbul",
-          "unit_price": "355,00 ₺/Kg",
-          "source_time": "27.11.2026 12:07",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "unit_price": "439,50 ₺/Kg",
+          "source_time": "28.11.2026 07:42",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -216,8 +372,8 @@
           "full_name": "Lipton Yellow Label Çay 1 Kg",
           "store": "Çiçekçi M Migros",
           "unit_price": "449,95 ₺/Kg",
-          "source_time": "27.11.2026 12:07",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:42",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "ŞOK",
@@ -246,8 +402,8 @@
           "full_name": "Tukaş Domates Salçası 1.65 Kg",
           "store": "Çiçekçi Üsküdar",
           "unit_price": "70,91 ₺/Kg",
-          "source_time": "27.11.2026 12:08",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -259,8 +415,8 @@
           "full_name": "Tukaş Domates Salçası 1.65 Kg",
           "store": "Kadıköy Çarşı M Migros",
           "unit_price": "103,00 ₺/Kg",
-          "source_time": "27.11.2026 12:08",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "BİM",
@@ -289,8 +445,8 @@
           "full_name": "Muratbey Tam Yağlı Taze Kaşar Peyniri 500 Gr",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "779,90 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -302,8 +458,8 @@
           "full_name": "Muratbey Tam Yağlı Taze Kaşar Peyniri 500 Gr",
           "store": "Çiçekçi M Migros",
           "unit_price": "1.038,00 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "CarrefourSA",
@@ -314,6 +470,92 @@
       "has_discount": true,
       "best_deal_market": "CarrefourSA",
       "best_deal_price": 389.95
+    },
+    {
+      "id": "1N10",
+      "name": "Tursil Leylak Bahçesi Sıvı Çamaşır Deterjanı 2.145 Lt",
+      "category": "Temizlik Ürünleri",
+      "size": "2.145 LT",
+      "image": "https://cdn.marketfiyati.org.tr/bimimages/1201582.png",
+      "prices": [
+        {
+          "market": "BİM",
+          "price": 199.0,
+          "regular_price": 199.0,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Tursil",
+          "full_name": "Tursil Leylak Bahçesi Sıvı Çamaşır Deterjanı 2.145 Lt",
+          "store": "Çiçekçi Üsküdar",
+          "unit_price": "92,77 ₺/Lt",
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        },
+        {
+          "market": "Migros",
+          "price": 199.95,
+          "regular_price": 280.95,
+          "discount": true,
+          "discount_ratio": 0.2883,
+          "brand": "Tursil",
+          "full_name": "Tursil Leylak Bahçesi Sıvı Çamaşır Deterjanı 2.145 Lt",
+          "store": "Çiçekçi M Migros",
+          "unit_price": "93,22 ₺/Lt",
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        }
+      ],
+      "cheapest_market": "BİM",
+      "cheapest_price": 199.0,
+      "cheapest_brand": "Tursil",
+      "max_savings": 81.95,
+      "savings_percent": 29.2,
+      "has_discount": true,
+      "best_deal_market": "BİM",
+      "best_deal_price": 199.0
+    },
+    {
+      "id": "1L07",
+      "name": "Kebir Köy Tereyağı 500 Gr",
+      "category": "Süt Ürünleri ve Kahvaltılık",
+      "size": "500 GR",
+      "image": "https://cdn.marketfiyati.org.tr/tarim_kredi/129668.jpg",
+      "prices": [
+        {
+          "market": "Tarım Kredi",
+          "price": 369.0,
+          "regular_price": 369.0,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Kebir",
+          "full_name": "Kebir Köy Tereyağı 500 Gr",
+          "store": "Istanbul Kadıköy Kızıltoprak",
+          "unit_price": "738,00 ₺/Kg",
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        },
+        {
+          "market": "CarrefourSA",
+          "price": 444.95,
+          "regular_price": 444.95,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Kebir",
+          "full_name": "Kebir Köy Tereyağı 500 Gr",
+          "store": "Istanbul Üsküdar Salacak Mını",
+          "unit_price": "889,90 ₺/Kg",
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        }
+      ],
+      "cheapest_market": "Tarım Kredi",
+      "cheapest_price": 369.0,
+      "cheapest_brand": "Kebir",
+      "max_savings": 75.95,
+      "savings_percent": 17.1,
+      "has_discount": false,
+      "best_deal_market": "Tarım Kredi",
+      "best_deal_price": 369.0
     },
     {
       "id": "10QF",
@@ -332,8 +574,8 @@
           "full_name": "Orkide Ayçiçek Yağı 2 Lt",
           "store": "Şahap Gürler Kadıköy Istanbul",
           "unit_price": "99,50 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -345,8 +587,8 @@
           "full_name": "Orkide Ayçiçek Yağı 2 Lt",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "134,98 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "A101",
@@ -375,8 +617,8 @@
           "full_name": "Kırlangıç Ayçiçek Yağı Pet 5 Lt",
           "store": "Çiçekçi Üsküdar",
           "unit_price": "89,80 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Hakmar",
@@ -388,8 +630,8 @@
           "full_name": "Kırlangıç Ayçiçek Yağı Pet 5 Lt",
           "store": "Ahmediye Üsküdar",
           "unit_price": "103,00 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "BİM",
@@ -418,8 +660,8 @@
           "full_name": "Yudum Egemden Riviera Zeytinyağı 2 Lt",
           "store": "Çiçekçi M Migros",
           "unit_price": "364,98 ₺/Lt",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -431,8 +673,8 @@
           "full_name": "Yudum Egemden Riviera Zeytinyağı 2 Lt",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "394,98 ₺/Lt",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -443,6 +685,49 @@
       "has_discount": false,
       "best_deal_market": "Migros",
       "best_deal_price": 729.95
+    },
+    {
+      "id": "2A3B",
+      "name": "Pril Limonlu Sıvı Bulaşık Deterjanı 4 Kg",
+      "category": "Temizlik Ürünleri",
+      "size": "4 KG",
+      "image": "https://cdn.marketfiyati.org.tr/hakmarimages/1006538.png",
+      "prices": [
+        {
+          "market": "Tarım Kredi",
+          "price": 299.9,
+          "regular_price": 299.9,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Pril",
+          "full_name": "Pril Limonlu Sıvı Bulaşık Deterjanı 4 Kg",
+          "store": "Istanbul Kadıköy Kızıltoprak",
+          "unit_price": "74,97 ₺/Kg",
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        },
+        {
+          "market": "Hakmar",
+          "price": 359.0,
+          "regular_price": 359.0,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Pril",
+          "full_name": "Pril Limonlu Sıvı Bulaşık Deterjanı 4 Kg",
+          "store": "Ahmediye Üsküdar",
+          "unit_price": "89,75 ₺/Kg",
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        }
+      ],
+      "cheapest_market": "Tarım Kredi",
+      "cheapest_price": 299.9,
+      "cheapest_brand": "Pril",
+      "max_savings": 59.1,
+      "savings_percent": 16.5,
+      "has_discount": false,
+      "best_deal_market": "Tarım Kredi",
+      "best_deal_price": 299.9
     },
     {
       "id": "0QZ6",
@@ -461,8 +746,8 @@
           "full_name": "Söke Un 5 Kg",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "33,99 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -474,8 +759,8 @@
           "full_name": "Söke Un 5 Kg",
           "store": "Mjet Üsküdar Paşakapısı",
           "unit_price": "53,99 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "CarrefourSA",
@@ -504,21 +789,21 @@
           "full_name": "Fairy Sıvı Bulaşık Deterjanı 650 Ml",
           "store": "Ahmediye Üsküdar",
           "unit_price": "153,69 ₺/Lt",
-          "source_time": "27.11.2026 12:08",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "BİM",
-          "price": 74.5,
+          "price": 149.0,
           "regular_price": 149.0,
-          "discount": true,
-          "discount_ratio": 0.5,
+          "discount": false,
+          "discount_ratio": 0,
           "brand": "Fairy",
           "full_name": "Fairy Sıvı Bulaşık Deterjanı 650 Ml",
           "store": "Çiçekçi Üsküdar",
-          "unit_price": "114,62 ₺/Lt",
-          "source_time": "27.11.2026 12:08",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "unit_price": "229,23 ₺/Lt",
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Hakmar",
@@ -526,9 +811,52 @@
       "cheapest_brand": "Fairy",
       "max_savings": 49.1,
       "savings_percent": 33.0,
-      "has_discount": true,
-      "best_deal_market": "BİM",
-      "best_deal_price": 74.5
+      "has_discount": false,
+      "best_deal_market": "Hakmar",
+      "best_deal_price": 99.9
+    },
+    {
+      "id": "1IO9",
+      "name": "Kocatepe Türk Kahvesi 100 Gr",
+      "category": "İçecek",
+      "size": "100 GR",
+      "image": "https://cdn.marketfiyati.org.tr/sokimages/88169.jpg",
+      "prices": [
+        {
+          "market": "Tarım Kredi",
+          "price": 59.0,
+          "regular_price": 59.0,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Kocatepe",
+          "full_name": "Kocatepe Türk Kahvesi 100 Gr",
+          "store": "Istanbul Kadıköy Kızıltoprak",
+          "unit_price": "590,00 ₺/Kg",
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        },
+        {
+          "market": "CarrefourSA",
+          "price": 107.95,
+          "regular_price": 107.95,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Kocatepe",
+          "full_name": "Kocatepe Türk Kahvesi 100 Gr",
+          "store": "Istanbul Moda Caddesı Mını",
+          "unit_price": "1.079,50 ₺/Kg",
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        }
+      ],
+      "cheapest_market": "Tarım Kredi",
+      "cheapest_price": 59.0,
+      "cheapest_brand": "Kocatepe",
+      "max_savings": 48.95,
+      "savings_percent": 45.3,
+      "has_discount": false,
+      "best_deal_market": "Tarım Kredi",
+      "best_deal_price": 59.0
     },
     {
       "id": "1WA9",
@@ -547,8 +875,8 @@
           "full_name": "Türkşeker Toz Şeker 3 Kg",
           "store": "Çiçekçi Üsküdar",
           "unit_price": "48,00 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "A101",
@@ -560,8 +888,8 @@
           "full_name": "Türkşeker Toz Şeker 3 Kg",
           "store": "Çiçekçi Üsküdar Istanbul",
           "unit_price": "63,17 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "BİM",
@@ -572,62 +900,6 @@
       "has_discount": false,
       "best_deal_market": "BİM",
       "best_deal_price": 144.0
-    },
-    {
-      "id": "20VU",
-      "name": "Öncü Domates Salçası 1.65 Kg",
-      "category": "Temel Gıda",
-      "size": "1.65 KG",
-      "image": "https://cdn.marketfiyati.org.tr/a101images/18001359.png",
-      "prices": [
-        {
-          "market": "A101",
-          "price": 195.0,
-          "regular_price": 195.0,
-          "discount": false,
-          "discount_ratio": 0,
-          "brand": "Öncü",
-          "full_name": "Öncü Domates Salçası 1.65 Kg",
-          "store": "Çiçekçi Üsküdar Istanbul",
-          "unit_price": "118,18 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
-        },
-        {
-          "market": "Migros",
-          "price": 239.95,
-          "regular_price": 239.95,
-          "discount": false,
-          "discount_ratio": 0,
-          "brand": "Öncü",
-          "full_name": "Öncü Domates Salçası 1.65 Kg",
-          "store": "Kadıköy Çarşı M Migros",
-          "unit_price": "145,42 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
-        },
-        {
-          "market": "CarrefourSA",
-          "price": 239.95,
-          "regular_price": 239.95,
-          "discount": false,
-          "discount_ratio": 0,
-          "brand": "Öncü",
-          "full_name": "Öncü Domates Salçası 1.65 Kg",
-          "store": "Istanbul Üsküdar Salacak Mını",
-          "unit_price": "145,42 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
-        }
-      ],
-      "cheapest_market": "A101",
-      "cheapest_price": 195.0,
-      "cheapest_brand": "Öncü",
-      "max_savings": 44.95,
-      "savings_percent": 18.7,
-      "has_discount": false,
-      "best_deal_market": "A101",
-      "best_deal_price": 195.0
     },
     {
       "id": "1SO9",
@@ -646,8 +918,8 @@
           "full_name": "Ofçay Tiryaki Siyah Çay 1 Kg",
           "store": "Ahmediye Üsküdar",
           "unit_price": "349,00 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -659,8 +931,8 @@
           "full_name": "Ofçay Tiryaki Siyah Çay 1 Kg",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "329,95 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Hakmar",
@@ -689,8 +961,8 @@
           "full_name": "Yudum Ayçiçek Yağı 2 Lt",
           "store": "Selimpaşa Üsküdar",
           "unit_price": "149,50 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -702,8 +974,8 @@
           "full_name": "Yudum Ayçiçek Yağı 2 Lt",
           "store": "Çiçekçi M Migros",
           "unit_price": "125,00 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -715,8 +987,8 @@
           "full_name": "Yudum Ayçiçek Yağı 2 Lt",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "166,98 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Hakmar",
@@ -745,8 +1017,8 @@
           "full_name": "Tat Domates Salçası 830 Gr",
           "store": "Çiçekçi Üsküdar",
           "unit_price": "83,13 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "A101",
@@ -758,8 +1030,8 @@
           "full_name": "Tat Domates Salçası 830 Gr",
           "store": "Kostak Ümraniye",
           "unit_price": "83,73 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "ŞOK",
@@ -771,8 +1043,8 @@
           "full_name": "Tat Domates Salçası 830 Gr",
           "store": "Şok Minifevziçakmak",
           "unit_price": "119,28 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -784,8 +1056,8 @@
           "full_name": "Tat Domates Salçası 830 Gr",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "90,36 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -797,8 +1069,8 @@
           "full_name": "Tat Domates Salçası 830 Gr",
           "store": "Çiçekçi M Migros",
           "unit_price": "120,42 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "BİM",
@@ -827,8 +1099,8 @@
           "full_name": "İçim Tam Yağlı Taze Kaşar Peyniri 700 Gr",
           "store": "Çiçekçi Üsküdar",
           "unit_price": "592,86 ₺/Kg",
-          "source_time": "27.11.2026 12:07",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:42",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -840,8 +1112,8 @@
           "full_name": "İçim Tam Yağlı Taze Kaşar Peyniri 700 Gr",
           "store": "Çiçekçi M Migros",
           "unit_price": "634,14 ₺/Kg",
-          "source_time": "27.11.2026 12:07",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:42",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "BİM",
@@ -870,8 +1142,8 @@
           "full_name": "Güres Bıldırcın Yumurta 12 Adet",
           "store": "Çiçekçi Üsküdar Istanbul",
           "unit_price": "4,58 ₺/Adet",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "ŞOK",
@@ -883,8 +1155,8 @@
           "full_name": "Güres Bıldırcın Yumurta 12 Adet",
           "store": "Şok Minifevziçakmak",
           "unit_price": "5,16 ₺/Adet",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -896,8 +1168,8 @@
           "full_name": "Güres Bıldırcın Yumurta 12 Adet",
           "store": "Çiçekçi M Migros",
           "unit_price": "6,83 ₺/Adet",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "A101",
@@ -908,6 +1180,49 @@
       "has_discount": false,
       "best_deal_market": "A101",
       "best_deal_price": 55.0
+    },
+    {
+      "id": "21HD",
+      "name": "Balküpü Toz Şeker 5 Kg",
+      "category": "Temel Gıda",
+      "size": "5 KG",
+      "image": "https://cdn.marketfiyati.org.tr/a101/14001959.jpg",
+      "prices": [
+        {
+          "market": "CarrefourSA",
+          "price": 254.95,
+          "regular_price": 254.95,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Balküpü",
+          "full_name": "Balküpü Toz Şeker 5 Kg",
+          "store": "Istanbul Üsküdar Salacak Mını",
+          "unit_price": "50,99 ₺/Kg",
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        },
+        {
+          "market": "A101",
+          "price": 279.5,
+          "regular_price": 279.5,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Balküpü",
+          "full_name": "Balküpü Toz Şeker 5 Kg",
+          "store": "Çiçekçi Üsküdar Istanbul",
+          "unit_price": "55,90 ₺/Kg",
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        }
+      ],
+      "cheapest_market": "CarrefourSA",
+      "cheapest_price": 254.95,
+      "cheapest_brand": "Balküpü",
+      "max_savings": 24.55,
+      "savings_percent": 8.8,
+      "has_discount": false,
+      "best_deal_market": "CarrefourSA",
+      "best_deal_price": 254.95
     },
     {
       "id": "1PU8",
@@ -926,8 +1241,8 @@
           "full_name": "Duru Pilavlık Bulgur 1 Kg",
           "store": "Çiçekçi Üsküdar",
           "unit_price": "55,00 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -939,8 +1254,8 @@
           "full_name": "Duru Pilavlık Bulgur 1 Kg",
           "store": "Mjet Üsküdar Paşakapısı",
           "unit_price": "75,95 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -952,8 +1267,8 @@
           "full_name": "Duru Pilavlık Bulgur 1 Kg",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "75,95 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "BİM",
@@ -982,8 +1297,8 @@
           "full_name": "Eker Çırpılmış Yoğurt 500 Gr",
           "store": "Kostak Ümraniye",
           "unit_price": "159,00 ₺/Kg",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -995,8 +1310,8 @@
           "full_name": "Eker Çırpılmış Yoğurt 500 Gr",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "139,90 ₺/Kg",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -1008,8 +1323,8 @@
           "full_name": "Eker Çırpılmış Yoğurt 500 Gr",
           "store": "Çiçekçi M Migros",
           "unit_price": "199,90 ₺/Kg",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "A101",
@@ -1038,8 +1353,8 @@
           "full_name": "Sensodyne Diş Macunu 100 Ml",
           "store": "Ahmediye Üsküdar",
           "unit_price": "1.990,00 ₺/Lt",
-          "source_time": "27.11.2026 12:08",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "BİM",
@@ -1051,8 +1366,8 @@
           "full_name": "Sensodyne Diş Macunu 100 Ml",
           "store": "Çiçekçi Üsküdar",
           "unit_price": "2.190,00 ₺/Lt",
-          "source_time": "27.11.2026 12:08",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Hakmar",
@@ -1081,8 +1396,8 @@
           "full_name": "Arbella Burgu Makarna 500 Gr",
           "store": "Çiçekçi Üsküdar",
           "unit_price": "34,00 ₺/Kg",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -1094,8 +1409,8 @@
           "full_name": "Arbella Burgu Makarna 500 Gr",
           "store": "Çiçekçi M Migros",
           "unit_price": "51,74 ₺/Kg",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -1107,8 +1422,8 @@
           "full_name": "Arbella Burgu Makarna 500 Gr",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "73,90 ₺/Kg",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "BİM",
@@ -1137,8 +1452,8 @@
           "full_name": "Biryağ Ayçiçek Yağı 1 Lt",
           "store": "Ahmediye Üsküdar",
           "unit_price": "139,00 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -1150,8 +1465,8 @@
           "full_name": "Biryağ Ayçiçek Yağı 1 Lt",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "154,95 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Hakmar",
@@ -1180,8 +1495,8 @@
           "full_name": "Pastavilla Dirsek Makarna 500 Gr",
           "store": "Çiçekçi M Migros",
           "unit_price": "51,80 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -1193,8 +1508,8 @@
           "full_name": "Pastavilla Dirsek Makarna 500 Gr",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "105,90 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -1205,75 +1520,6 @@
       "has_discount": true,
       "best_deal_market": "Migros",
       "best_deal_price": 25.9
-    },
-    {
-      "id": "20FP",
-      "name": "Mutlu Penne Makarna 500 Gr",
-      "category": "Temel Gıda",
-      "size": "500 GR",
-      "image": "https://cdn.marketfiyati.org.tr/bim/1711958.jpg",
-      "prices": [
-        {
-          "market": "BİM",
-          "price": 22.5,
-          "regular_price": 22.5,
-          "discount": false,
-          "discount_ratio": 0,
-          "brand": "Mutlu",
-          "full_name": "Mutlu Penne Makarna 500 Gr",
-          "store": "Çiçekçi Üsküdar",
-          "unit_price": "45,00 ₺/Kg",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
-        },
-        {
-          "market": "Hakmar",
-          "price": 29.75,
-          "regular_price": 29.75,
-          "discount": false,
-          "discount_ratio": 0,
-          "brand": "Mutlu",
-          "full_name": "Mutlu Penne Makarna 500 Gr",
-          "store": "Ahmediye Üsküdar",
-          "unit_price": "59,50 ₺/Kg",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
-        },
-        {
-          "market": "Migros",
-          "price": 36.95,
-          "regular_price": 36.95,
-          "discount": false,
-          "discount_ratio": 0,
-          "brand": "Mutlu",
-          "full_name": "Mutlu Penne Makarna 500 Gr",
-          "store": "Çiçekçi M Migros",
-          "unit_price": "73,90 ₺/Kg",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
-        },
-        {
-          "market": "CarrefourSA",
-          "price": 36.95,
-          "regular_price": 36.95,
-          "discount": false,
-          "discount_ratio": 0,
-          "brand": "Mutlu",
-          "full_name": "Mutlu Penne Makarna 500 Gr",
-          "store": "Istanbul Üsküdar Salacak Mını",
-          "unit_price": "73,90 ₺/Kg",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
-        }
-      ],
-      "cheapest_market": "BİM",
-      "cheapest_price": 22.5,
-      "cheapest_brand": "Mutlu",
-      "max_savings": 14.45,
-      "savings_percent": 39.1,
-      "has_discount": false,
-      "best_deal_market": "BİM",
-      "best_deal_price": 22.5
     },
     {
       "id": "1WDQ",
@@ -1292,8 +1538,8 @@
           "full_name": "Sütaş Tereyağı 125 Gr",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "1.063,60 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -1305,8 +1551,8 @@
           "full_name": "Sütaş Tereyağı 125 Gr",
           "store": "Mjet Üsküdar Paşakapısı",
           "unit_price": "1.154,00 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "CarrefourSA",
@@ -1335,8 +1581,8 @@
           "full_name": "Pantene Kepek Karşıtı Şampuan 400 Ml",
           "store": "Çiçekçi Üsküdar Istanbul",
           "unit_price": "622,50 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "ŞOK",
@@ -1348,8 +1594,8 @@
           "full_name": "Pantene Kepek Karşıtı Şampuan 400 Ml",
           "store": "Şok Minifevziçakmak",
           "unit_price": "622,50 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -1361,8 +1607,8 @@
           "full_name": "Pantene Kepek Karşıtı Şampuan 400 Ml",
           "store": "Çiçekçi M Migros",
           "unit_price": "649,88 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "A101",
@@ -1373,49 +1619,6 @@
       "has_discount": false,
       "best_deal_market": "A101",
       "best_deal_price": 249.0
-    },
-    {
-      "id": "1UAA",
-      "name": "Ekici Beyaz Peynir 500 Gr",
-      "category": "Süt Ürünleri ve Kahvaltılık",
-      "size": "500 GR",
-      "image": "https://cdn.marketfiyati.org.tr/carrefourimages/30079227.png",
-      "prices": [
-        {
-          "market": "Hakmar",
-          "price": 215.0,
-          "regular_price": 215.0,
-          "discount": false,
-          "discount_ratio": 0,
-          "brand": "Ekici",
-          "full_name": "Ekici Beyaz Peynir 500 Gr",
-          "store": "Ahmediye Üsküdar",
-          "unit_price": "430,00 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
-        },
-        {
-          "market": "Migros",
-          "price": 224.95,
-          "regular_price": 224.95,
-          "discount": false,
-          "discount_ratio": 0,
-          "brand": "Ekici",
-          "full_name": "Ekici Beyaz Peynir 500 Gr",
-          "store": "Çiçekçi M Migros",
-          "unit_price": "449,90 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
-        }
-      ],
-      "cheapest_market": "Hakmar",
-      "cheapest_price": 215.0,
-      "cheapest_brand": "Ekici",
-      "max_savings": 9.95,
-      "savings_percent": 4.4,
-      "has_discount": false,
-      "best_deal_market": "Hakmar",
-      "best_deal_price": 215.0
     },
     {
       "id": "207R",
@@ -1434,8 +1637,8 @@
           "full_name": "Filiz Boncuk Makarna 500 Gr",
           "store": "Çiçekçi Üsküdar",
           "unit_price": "57,00 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "A101",
@@ -1447,8 +1650,8 @@
           "full_name": "Filiz Boncuk Makarna 500 Gr",
           "store": "Çiçekçi Üsküdar Istanbul",
           "unit_price": "73,00 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -1460,8 +1663,8 @@
           "full_name": "Filiz Boncuk Makarna 500 Gr",
           "store": "Çiçekçi M Migros",
           "unit_price": "75,90 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -1473,8 +1676,8 @@
           "full_name": "Filiz Boncuk Makarna 500 Gr",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "75,90 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "BİM",
@@ -1503,8 +1706,8 @@
           "full_name": "Filiz Fiyonk Makarna 500 Gr",
           "store": "Çiçekçi Üsküdar",
           "unit_price": "57,00 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "ŞOK",
@@ -1516,8 +1719,8 @@
           "full_name": "Filiz Fiyonk Makarna 500 Gr",
           "store": "Şok Minifevziçakmak",
           "unit_price": "73,00 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -1529,8 +1732,8 @@
           "full_name": "Filiz Fiyonk Makarna 500 Gr",
           "store": "Çiçekçi M Migros",
           "unit_price": "75,90 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -1542,8 +1745,8 @@
           "full_name": "Filiz Fiyonk Makarna 500 Gr",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "75,90 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "BİM",
@@ -1572,8 +1775,8 @@
           "full_name": "Duru Pilavlık Bulgur 2 Kg",
           "store": "Istanbul Moda Caddesı Mını",
           "unit_price": "69,97 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -1585,8 +1788,8 @@
           "full_name": "Duru Pilavlık Bulgur 2 Kg",
           "store": "Çiçekçi M Migros",
           "unit_price": "74,50 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "CarrefourSA",
@@ -1599,159 +1802,185 @@
       "best_deal_price": 139.95
     },
     {
-      "id": "21EL",
-      "name": "Balküpü Toz Şeker 1 Kg",
+      "id": "20FP",
+      "name": "Mutlu Penne Makarna 500 Gr",
       "category": "Temel Gıda",
-      "size": "1 KG",
-      "image": "https://cdn.marketfiyati.org.tr/a101/14002038.jpg",
+      "size": "500 GR",
+      "image": "https://cdn.marketfiyati.org.tr/bim/1711958.jpg",
       "prices": [
         {
-          "market": "CarrefourSA",
-          "price": 60.0,
-          "regular_price": 64.95,
-          "discount": true,
-          "discount_ratio": 0.0762,
-          "brand": "Balküpü",
-          "full_name": "Balküpü Toz Şeker 1 Kg",
-          "store": "Istanbul Kadıköy Moda Cad",
-          "unit_price": "60,00 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
-        },
-        {
-          "market": "A101",
-          "price": 65.0,
-          "regular_price": 65.0,
+          "market": "BİM",
+          "price": 28.5,
+          "regular_price": 28.5,
           "discount": false,
           "discount_ratio": 0,
-          "brand": "Balküpü",
-          "full_name": "Balküpü Toz Şeker 1 Kg",
-          "store": "Çiçekçi Üsküdar Istanbul",
-          "unit_price": "65,00 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "brand": "Mutlu",
+          "full_name": "Mutlu Penne Makarna 500 Gr",
+          "store": "Çiçekçi Üsküdar",
+          "unit_price": "57,00 ₺/Kg",
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Hakmar",
-          "price": 69.5,
-          "regular_price": 69.5,
+          "price": 29.75,
+          "regular_price": 29.75,
           "discount": false,
           "discount_ratio": 0,
-          "brand": "Balküpü",
-          "full_name": "Balküpü Toz Şeker 1 Kg",
+          "brand": "Mutlu",
+          "full_name": "Mutlu Penne Makarna 500 Gr",
           "store": "Ahmediye Üsküdar",
-          "unit_price": "69,50 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
-        }
-      ],
-      "cheapest_market": "CarrefourSA",
-      "cheapest_price": 64.95,
-      "cheapest_brand": "Balküpü",
-      "max_savings": 4.55,
-      "savings_percent": 6.5,
-      "has_discount": true,
-      "best_deal_market": "CarrefourSA",
-      "best_deal_price": 60.0
-    },
-    {
-      "id": "21HD",
-      "name": "Balküpü Toz Şeker 5 Kg",
-      "category": "Temel Gıda",
-      "size": "5 KG",
-      "image": "https://cdn.marketfiyati.org.tr/a101/14001959.jpg",
-      "prices": [
-        {
-          "market": "CarrefourSA",
-          "price": 254.95,
-          "regular_price": 254.95,
-          "discount": false,
-          "discount_ratio": 0,
-          "brand": "Balküpü",
-          "full_name": "Balküpü Toz Şeker 5 Kg",
-          "store": "Istanbul Üsküdar Salacak Mını",
-          "unit_price": "50,99 ₺/Kg",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
-        },
-        {
-          "market": "A101",
-          "price": 259.5,
-          "regular_price": 259.5,
-          "discount": false,
-          "discount_ratio": 0,
-          "brand": "Balküpü",
-          "full_name": "Balküpü Toz Şeker 5 Kg",
-          "store": "Çiçekçi Üsküdar Istanbul",
-          "unit_price": "51,90 ₺/Kg",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
-        }
-      ],
-      "cheapest_market": "CarrefourSA",
-      "cheapest_price": 254.95,
-      "cheapest_brand": "Balküpü",
-      "max_savings": 4.55,
-      "savings_percent": 1.8,
-      "has_discount": false,
-      "best_deal_market": "CarrefourSA",
-      "best_deal_price": 254.95
-    },
-    {
-      "id": "20QT",
-      "name": "Öncü Domates Salçası Teneke 830 Gr",
-      "category": "Temel Gıda",
-      "size": "830 GR",
-      "image": "https://cdn.marketfiyati.org.tr/a101images/18001796.png",
-      "prices": [
-        {
-          "market": "A101",
-          "price": 99.5,
-          "regular_price": 99.5,
-          "discount": false,
-          "discount_ratio": 0,
-          "brand": "Öncü",
-          "full_name": "Öncü Domates Salçası Teneke 830 Gr",
-          "store": "Çiçekçi Üsküdar Istanbul",
-          "unit_price": "119,88 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "unit_price": "59,50 ₺/Kg",
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
-          "price": 101.95,
-          "regular_price": 101.95,
+          "price": 36.95,
+          "regular_price": 36.95,
           "discount": false,
           "discount_ratio": 0,
-          "brand": "Öncü",
-          "full_name": "Öncü Domates Salçası Teneke 830 Gr",
+          "brand": "Mutlu",
+          "full_name": "Mutlu Penne Makarna 500 Gr",
           "store": "Çiçekçi M Migros",
-          "unit_price": "122,83 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "unit_price": "73,90 ₺/Kg",
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
-          "price": 102.95,
-          "regular_price": 102.95,
+          "price": 36.95,
+          "regular_price": 36.95,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Mutlu",
+          "full_name": "Mutlu Penne Makarna 500 Gr",
+          "store": "Istanbul Üsküdar Salacak Mını",
+          "unit_price": "73,90 ₺/Kg",
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        }
+      ],
+      "cheapest_market": "BİM",
+      "cheapest_price": 28.5,
+      "cheapest_brand": "Mutlu",
+      "max_savings": 8.45,
+      "savings_percent": 22.9,
+      "has_discount": false,
+      "best_deal_market": "BİM",
+      "best_deal_price": 28.5
+    },
+    {
+      "id": "20VU",
+      "name": "Öncü Domates Salçası 1.65 Kg",
+      "category": "Temel Gıda",
+      "size": "1.65 KG",
+      "image": "https://cdn.marketfiyati.org.tr/a101images/18001359.png",
+      "prices": [
+        {
+          "market": "A101",
+          "price": 235.0,
+          "regular_price": 235.0,
           "discount": false,
           "discount_ratio": 0,
           "brand": "Öncü",
-          "full_name": "Öncü Domates Salçası Teneke 830 Gr",
+          "full_name": "Öncü Domates Salçası 1.65 Kg",
+          "store": "Çiçekçi Üsküdar Istanbul",
+          "unit_price": "142,42 ₺/Kg",
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        },
+        {
+          "market": "Migros",
+          "price": 239.95,
+          "regular_price": 239.95,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Öncü",
+          "full_name": "Öncü Domates Salçası 1.65 Kg",
+          "store": "Kadıköy Çarşı M Migros",
+          "unit_price": "145,42 ₺/Kg",
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        },
+        {
+          "market": "CarrefourSA",
+          "price": 239.95,
+          "regular_price": 239.95,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Öncü",
+          "full_name": "Öncü Domates Salçası 1.65 Kg",
           "store": "Istanbul Üsküdar Salacak Mını",
-          "unit_price": "124,04 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "unit_price": "145,42 ₺/Kg",
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "A101",
-      "cheapest_price": 99.5,
+      "cheapest_price": 235.0,
       "cheapest_brand": "Öncü",
-      "max_savings": 3.45,
-      "savings_percent": 3.4,
+      "max_savings": 4.95,
+      "savings_percent": 2.1,
       "has_discount": false,
       "best_deal_market": "A101",
-      "best_deal_price": 99.5
+      "best_deal_price": 235.0
+    },
+    {
+      "id": "1T7S",
+      "name": "Danone Suprix Yoğurt Meyveli 90 Gr",
+      "category": "Süt Ürünleri ve Kahvaltılık",
+      "size": "90 GR",
+      "image": "https://cdn.marketfiyati.org.tr/a101images/12003274.png",
+      "prices": [
+        {
+          "market": "A101",
+          "price": 63.5,
+          "regular_price": 63.5,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Danone",
+          "full_name": "Danone Suprix Yoğurt Meyveli 90 Gr",
+          "store": "Çiçekçi Üsküdar Istanbul",
+          "unit_price": "705,56 ₺/Kg",
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        },
+        {
+          "market": "Migros",
+          "price": 64.95,
+          "regular_price": 64.95,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Danone",
+          "full_name": "Danone Suprix Yoğurt Meyveli 90 Gr",
+          "store": "Çiçekçi M Migros",
+          "unit_price": "721,67 ₺/Kg",
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        },
+        {
+          "market": "CarrefourSA",
+          "price": 64.95,
+          "regular_price": 64.95,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Danone",
+          "full_name": "Danone Suprix Yoğurt Meyveli 90 Gr",
+          "store": "Istanbul Acıbadem Hıper",
+          "unit_price": "721,67 ₺/Kg",
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        }
+      ],
+      "cheapest_market": "A101",
+      "cheapest_price": 63.5,
+      "cheapest_brand": "Danone",
+      "max_savings": 1.45,
+      "savings_percent": 2.2,
+      "has_discount": false,
+      "best_deal_market": "A101",
+      "best_deal_price": 63.5
     },
     {
       "id": "1LPE",
@@ -1770,8 +1999,8 @@
           "full_name": "İçim Organik Süt 1 Lt",
           "store": "Paşakapısı",
           "unit_price": "88,50 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -1783,8 +2012,8 @@
           "full_name": "İçim Organik Süt 1 Lt",
           "store": "Çiçekçi M Migros",
           "unit_price": "89,95 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -1796,8 +2025,8 @@
           "full_name": "İçim Organik Süt 1 Lt",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "89,95 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "ŞOK",
@@ -1826,8 +2055,8 @@
           "full_name": "Eker Çilekli Yoğurt 65 Gr",
           "store": "Çiçekçi M Migros",
           "unit_price": "599,23 ₺/Kg",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -1839,8 +2068,8 @@
           "full_name": "Eker Çilekli Yoğurt 65 Gr",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "614,62 ₺/Kg",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -1869,8 +2098,8 @@
           "full_name": "Danone Activia Çilekli Yoğurt 400 Gr",
           "store": "Şok Minifevziçakmak",
           "unit_price": "312,50 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -1882,8 +2111,8 @@
           "full_name": "Danone Activia Çilekli Yoğurt 400 Gr",
           "store": "Çiçekçi M Migros",
           "unit_price": "314,88 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -1895,8 +2124,8 @@
           "full_name": "Danone Activia Çilekli Yoğurt 400 Gr",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "314,88 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "ŞOK",
@@ -1925,8 +2154,8 @@
           "full_name": "Pınar Süt 1 Lt",
           "store": "Çiçekçi Üsküdar Istanbul",
           "unit_price": "85,00 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Hakmar",
@@ -1938,8 +2167,8 @@
           "full_name": "Pınar Süt 1 Lt",
           "store": "Ahmediye Üsküdar",
           "unit_price": "85,00 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -1951,8 +2180,8 @@
           "full_name": "Pınar Süt 1 Lt",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "85,95 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "A101",
@@ -1972,19 +2201,6 @@
       "image": "https://cdn.marketfiyati.org.tr/sok/92164.jpg",
       "prices": [
         {
-          "market": "BİM",
-          "price": 225.0,
-          "regular_price": 239.0,
-          "discount": true,
-          "discount_ratio": 0.0586,
-          "brand": "Türkşeker",
-          "full_name": "Türkşeker Toz Şeker 5 Kg",
-          "store": "Çiçekçi Üsküdar",
-          "unit_price": "45,00 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
-        },
-        {
           "market": "A101",
           "price": 239.0,
           "regular_price": 239.0,
@@ -1994,8 +2210,34 @@
           "full_name": "Türkşeker Toz Şeker 5 Kg",
           "store": "Çiçekçi Üsküdar Istanbul",
           "unit_price": "47,80 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        },
+        {
+          "market": "BİM",
+          "price": 239.0,
+          "regular_price": 239.0,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Türkşeker",
+          "full_name": "Türkşeker Toz Şeker 5 Kg",
+          "store": "Çiçekçi Üsküdar",
+          "unit_price": "47,80 ₺/Kg",
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        },
+        {
+          "market": "Tarım Kredi",
+          "price": 239.9,
+          "regular_price": 239.9,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Türkşeker",
+          "full_name": "Türkşeker Toz Şeker 5 Kg",
+          "store": "Istanbul Kadıköy Kızıltoprak",
+          "unit_price": "47,98 ₺/Kg",
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -2007,18 +2249,18 @@
           "full_name": "Türkşeker Toz Şeker 5 Kg",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "45,99 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
-      "cheapest_market": "BİM",
+      "cheapest_market": "A101",
       "cheapest_price": 239.0,
       "cheapest_brand": "Türkşeker",
       "max_savings": 0.95,
       "savings_percent": 0.4,
       "has_discount": true,
-      "best_deal_market": "BİM",
-      "best_deal_price": 225.0
+      "best_deal_market": "CarrefourSA",
+      "best_deal_price": 229.95
     },
     {
       "id": "1LUK",
@@ -2037,8 +2279,8 @@
           "full_name": "İçim Organik Yoğurt 750 Gr",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "137,27 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -2050,8 +2292,8 @@
           "full_name": "İçim Organik Yoğurt 750 Gr",
           "store": "Kadıköy Çarşı M Migros",
           "unit_price": "138,00 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "ŞOK",
@@ -2063,8 +2305,8 @@
           "full_name": "İçim Organik Yoğurt 750 Gr",
           "store": "Şok Minifevziçakmak",
           "unit_price": "138,00 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "CarrefourSA",
@@ -2093,8 +2335,8 @@
           "full_name": "Balküpü Toz Şeker 3 Kg",
           "store": "Çiçekçi Üsküdar Istanbul",
           "unit_price": "63,17 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -2106,8 +2348,8 @@
           "full_name": "Balküpü Toz Şeker 3 Kg",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "63,32 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "A101",
@@ -2136,8 +2378,8 @@
           "full_name": "Danone Hüpper Çilek Aromalı Yoğurt 67 Gr",
           "store": "Çiçekçi M Migros",
           "unit_price": "634,33 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "ŞOK",
@@ -2149,8 +2391,8 @@
           "full_name": "Danone Hüpper Çilek Aromalı Yoğurt 67 Gr",
           "store": "Şok Minifevziçakmak",
           "unit_price": "634,33 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -2162,8 +2404,8 @@
           "full_name": "Danone Hüpper Çilek Aromalı Yoğurt 67 Gr",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "641,04 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -2192,8 +2434,8 @@
           "full_name": "Komili Ayçiçek Yağı 2 Lt",
           "store": "Çiçekçi Üsküdar Istanbul",
           "unit_price": "174,75 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -2205,8 +2447,8 @@
           "full_name": "Komili Ayçiçek Yağı 2 Lt",
           "store": "Çiçekçi M Migros",
           "unit_price": "174,98 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "A101",
@@ -2217,49 +2459,6 @@
       "has_discount": false,
       "best_deal_market": "A101",
       "best_deal_price": 349.5
-    },
-    {
-      "id": "1RQV",
-      "name": "Kurukahveci Mehmet Efendi Kafeinsiz Türk Kahvesi 50 Gr",
-      "category": "İçecek",
-      "size": "50 GR",
-      "image": "https://cdn.marketfiyati.org.tr/carrefourimages/30239887.png",
-      "prices": [
-        {
-          "market": "Migros",
-          "price": 109.5,
-          "regular_price": 109.5,
-          "discount": false,
-          "discount_ratio": 0,
-          "brand": "Kurukahveci Mehmet Efendi",
-          "full_name": "Kurukahveci Mehmet Efendi Kafeinsiz Türk Kahvesi 50 Gr",
-          "store": "Mjet Kadıköy Rasımpaşa Istanbu",
-          "unit_price": "2.190,00 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
-        },
-        {
-          "market": "CarrefourSA",
-          "price": 109.95,
-          "regular_price": 109.95,
-          "discount": false,
-          "discount_ratio": 0,
-          "brand": "Kurukahveci Mehmet Efendi",
-          "full_name": "Kurukahveci Mehmet Efendi Kafeinsiz Türk Kahvesi 50 Gr",
-          "store": "Istanbul Üsküdar Salacak Mını",
-          "unit_price": "2.199,00 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
-        }
-      ],
-      "cheapest_market": "Migros",
-      "cheapest_price": 109.5,
-      "cheapest_brand": "Kurukahveci Mehmet Efendi",
-      "max_savings": 0.45,
-      "savings_percent": 0.4,
-      "has_discount": false,
-      "best_deal_market": "Migros",
-      "best_deal_price": 109.5
     },
     {
       "id": "1T9S",
@@ -2278,8 +2477,8 @@
           "full_name": "İçim Süt 1 Lt",
           "store": "Çiçekçi M Migros",
           "unit_price": "70,50 ₺/Lt",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -2291,8 +2490,8 @@
           "full_name": "İçim Süt 1 Lt",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "70,95 ₺/Lt",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -2321,8 +2520,8 @@
           "full_name": "Blendax Isırgan Otlu Şampuan 500 Ml",
           "store": "Kadıköy Çarşı M Migros",
           "unit_price": "349,90 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "A101",
@@ -2334,8 +2533,8 @@
           "full_name": "Blendax Isırgan Otlu Şampuan 500 Ml",
           "store": "Çiçekçi Üsküdar Istanbul",
           "unit_price": "350,00 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "ŞOK",
@@ -2347,8 +2546,8 @@
           "full_name": "Blendax Isırgan Otlu Şampuan 500 Ml",
           "store": "Şok Minitamer Yeni",
           "unit_price": "350,00 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -2377,8 +2576,8 @@
           "full_name": "Pınar Folyo Tereyağı 200 Gr",
           "store": "Çiçekçi M Migros",
           "unit_price": "1.039,50 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -2390,8 +2589,8 @@
           "full_name": "Pınar Folyo Tereyağı 200 Gr",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "1.039,75 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -2420,8 +2619,8 @@
           "full_name": "İçim Laktozsuz Yoğurt 750 Gr",
           "store": "Çiçekçi M Migros",
           "unit_price": "119,87 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -2433,8 +2632,8 @@
           "full_name": "İçim Laktozsuz Yoğurt 750 Gr",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "119,93 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -2445,49 +2644,6 @@
       "has_discount": false,
       "best_deal_market": "Migros",
       "best_deal_price": 89.9
-    },
-    {
-      "id": "1I5D",
-      "name": "İçim Light Süt 1 Lt",
-      "category": "Süt Ürünleri ve Kahvaltılık",
-      "size": "1 LT",
-      "image": "https://cdn.marketfiyati.org.tr/migros/11019978.jpg",
-      "prices": [
-        {
-          "market": "Migros",
-          "price": 64.9,
-          "regular_price": 64.9,
-          "discount": false,
-          "discount_ratio": 0,
-          "brand": "İçim",
-          "full_name": "İçim Light Süt 1 Lt",
-          "store": "Çiçekçi M Migros",
-          "unit_price": "64,90 ₺/Lt",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
-        },
-        {
-          "market": "CarrefourSA",
-          "price": 64.95,
-          "regular_price": 64.95,
-          "discount": false,
-          "discount_ratio": 0,
-          "brand": "İçim",
-          "full_name": "İçim Light Süt 1 Lt",
-          "store": "Istanbul Acıbadem Hıper",
-          "unit_price": "64,95 ₺/Lt",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
-        }
-      ],
-      "cheapest_market": "Migros",
-      "cheapest_price": 64.9,
-      "cheapest_brand": "İçim",
-      "max_savings": 0.05,
-      "savings_percent": 0.1,
-      "has_discount": false,
-      "best_deal_market": "Migros",
-      "best_deal_price": 64.9
     },
     {
       "id": "1NAZ",
@@ -2506,8 +2662,8 @@
           "full_name": "Blendax Şampuan 500 Ml",
           "store": "Çiçekçi Üsküdar",
           "unit_price": "350,00 ₺/Lt",
-          "source_time": "27.11.2026 12:08",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Hakmar",
@@ -2519,8 +2675,8 @@
           "full_name": "Blendax Şampuan 500 Ml",
           "store": "Ahmediye Üsküdar",
           "unit_price": "350,00 ₺/Lt",
-          "source_time": "27.11.2026 12:08",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "BİM",
@@ -2549,8 +2705,8 @@
           "full_name": "Clear Şampuan 350 Ml",
           "store": "Çiçekçi Üsküdar",
           "unit_price": "711,43 ₺/Lt",
-          "source_time": "27.11.2026 12:08",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Hakmar",
@@ -2562,8 +2718,8 @@
           "full_name": "Clear Şampuan 350 Ml",
           "store": "Ahmediye Üsküdar",
           "unit_price": "711,43 ₺/Lt",
-          "source_time": "27.11.2026 12:08",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "BİM",
@@ -2592,8 +2748,8 @@
           "full_name": "Danone Activia Probiyotik Laktozsuz Sade Yoğurt 400 Gr",
           "store": "Çiçekçi M Migros",
           "unit_price": "314,88 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -2605,8 +2761,8 @@
           "full_name": "Danone Activia Probiyotik Laktozsuz Sade Yoğurt 400 Gr",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "314,88 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -2635,8 +2791,8 @@
           "full_name": "Duru Başbaşı Bulgur 1 Kg",
           "store": "Çiçekçi M Migros",
           "unit_price": "75,95 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -2648,8 +2804,8 @@
           "full_name": "Duru Başbaşı Bulgur 1 Kg",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "75,95 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -2660,6 +2816,49 @@
       "has_discount": false,
       "best_deal_market": "Migros",
       "best_deal_price": 75.95
+    },
+    {
+      "id": "1L60",
+      "name": "Elidor Şampuan Çeşitleri 400 Ml",
+      "category": "Kişisel Bakım",
+      "size": "400 ML",
+      "image": "",
+      "prices": [
+        {
+          "market": "BİM",
+          "price": 219.0,
+          "regular_price": 219.0,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Elidor",
+          "full_name": "Elidor Şampuan Çeşitleri 400 Ml",
+          "store": "Çiçekçi Üsküdar",
+          "unit_price": "547,50 ₺/Lt",
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        },
+        {
+          "market": "Tarım Kredi",
+          "price": 219.0,
+          "regular_price": 219.0,
+          "discount": false,
+          "discount_ratio": 0,
+          "brand": "Elidor",
+          "full_name": "Elidor Şampuan Çeşitleri 400 Ml",
+          "store": "Istanbul Kadıköy Kızıltoprak",
+          "unit_price": "547,50 ₺/Lt",
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
+        }
+      ],
+      "cheapest_market": "BİM",
+      "cheapest_price": 219.0,
+      "cheapest_brand": "Elidor",
+      "max_savings": 0.0,
+      "savings_percent": 0.0,
+      "has_discount": false,
+      "best_deal_market": "BİM",
+      "best_deal_price": 219.0
     },
     {
       "id": "1PDS",
@@ -2678,8 +2877,8 @@
           "full_name": "Familia Plus Natural Tuvalet Kağıdı 16 Adet",
           "store": "Kadıköy Caferağa M Migros",
           "unit_price": "17,50 ₺/Adet",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -2691,8 +2890,8 @@
           "full_name": "Familia Plus Natural Tuvalet Kağıdı 16 Adet",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "17,50 ₺/Adet",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -2721,8 +2920,8 @@
           "full_name": "Filiz Fırın Makarna 500 Gr",
           "store": "Çiçekçi M Migros",
           "unit_price": "75,90 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -2734,8 +2933,8 @@
           "full_name": "Filiz Fırın Makarna 500 Gr",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "75,90 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -2764,8 +2963,8 @@
           "full_name": "Filiz Yumurtalı Bukle Makarna 350 Gr",
           "store": "Mjet Üsküdar Paşakapısı",
           "unit_price": "151,29 ₺/Kg",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -2777,8 +2976,8 @@
           "full_name": "Filiz Yumurtalı Bukle Makarna 350 Gr",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "151,29 ₺/Kg",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -2807,8 +3006,8 @@
           "full_name": "Hasata Mardin Kırmızı Mercimek 1 Kg",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "99,95 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -2820,8 +3019,8 @@
           "full_name": "Hasata Mardin Kırmızı Mercimek 1 Kg",
           "store": "Çiçekçi M Migros",
           "unit_price": "119,95 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "CarrefourSA",
@@ -2848,10 +3047,10 @@
           "discount_ratio": 0,
           "brand": "Kebir",
           "full_name": "Kebir Tereyağı 500 Gr",
-          "store": "Doğanevler Ümraniye Istanbul",
+          "store": "Adem Yavuz Ümraniye Istanbul",
           "unit_price": "890,00 ₺/Kg",
-          "source_time": "27.11.2026 12:08",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "ŞOK",
@@ -2863,8 +3062,8 @@
           "full_name": "Kebir Tereyağı 500 Gr",
           "store": "Şok Minifevziçakmak",
           "unit_price": "890,00 ₺/Kg",
-          "source_time": "27.11.2026 12:08",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "BİM",
@@ -2876,8 +3075,8 @@
           "full_name": "Kebir Tereyağı 500 Gr",
           "store": "Çiçekçi Üsküdar",
           "unit_price": "890,00 ₺/Kg",
-          "source_time": "27.11.2026 12:08",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Hakmar",
@@ -2889,8 +3088,8 @@
           "full_name": "Kebir Tereyağı 500 Gr",
           "store": "Ahmediye Üsküdar",
           "unit_price": "890,00 ₺/Kg",
-          "source_time": "27.11.2026 12:08",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:43",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "A101",
@@ -2919,8 +3118,8 @@
           "full_name": "Mutlu Burgu Makarna 500 Gr",
           "store": "Mjet Üsküdar Paşakapısı",
           "unit_price": "73,90 ₺/Kg",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -2932,8 +3131,8 @@
           "full_name": "Mutlu Burgu Makarna 500 Gr",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "73,90 ₺/Kg",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -2962,8 +3161,8 @@
           "full_name": "Pınar Tereyağı 125 Gr",
           "store": "Çiçekçi M Migros",
           "unit_price": "1.119,60 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -2975,8 +3174,8 @@
           "full_name": "Pınar Tereyağı 125 Gr",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "1.119,60 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -3005,8 +3204,8 @@
           "full_name": "Raya Organik Yumurta M Boy 53-62 Gr 8 Adet",
           "store": "Çiçekçi M Migros",
           "unit_price": "17,49 ₺/Adet",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -3018,8 +3217,8 @@
           "full_name": "Raya Organik Yumurta M Boy 53-62 Gr 8 Adet",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "17,49 ₺/Adet",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -3048,8 +3247,8 @@
           "full_name": "Reis Köftelik Bulgur 1 Kg",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "64,95 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -3061,8 +3260,8 @@
           "full_name": "Reis Köftelik Bulgur 1 Kg",
           "store": "Kadıköy Çarşı M Migros",
           "unit_price": "94,95 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "CarrefourSA",
@@ -3091,8 +3290,8 @@
           "full_name": "Reis Kırmızı Mercimek 1 Kg",
           "store": "Kadıköy Çarşı M Migros",
           "unit_price": "209,95 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -3104,8 +3303,8 @@
           "full_name": "Reis Kırmızı Mercimek 1 Kg",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "209,95 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -3134,8 +3333,8 @@
           "full_name": "Reis Osmancık Pirinç 1 Kg",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "125,00 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -3147,8 +3346,8 @@
           "full_name": "Reis Osmancık Pirinç 1 Kg",
           "store": "Çiçekçi M Migros",
           "unit_price": "179,95 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "CarrefourSA",
@@ -3177,8 +3376,8 @@
           "full_name": "Reis Siyez Bulgur 1 Kg",
           "store": "Çiçekçi M Migros",
           "unit_price": "334,95 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -3190,8 +3389,8 @@
           "full_name": "Reis Siyez Bulgur 1 Kg",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "334,95 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -3220,8 +3419,8 @@
           "full_name": "Sek Süt 1 Lt",
           "store": "Çiçekçi M Migros",
           "unit_price": "76,95 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -3233,8 +3432,8 @@
           "full_name": "Sek Süt 1 Lt",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "76,95 ₺/Lt",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -3263,8 +3462,8 @@
           "full_name": "Starbucks Türk Kahvesi Veranda Blend 100 Gr",
           "store": "Kadıköy Çarşı M Migros",
           "unit_price": "945,00 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -3276,8 +3475,8 @@
           "full_name": "Starbucks Türk Kahvesi Veranda Blend 100 Gr",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "1.250,00 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -3306,8 +3505,8 @@
           "full_name": "Sütaş Kaşar Peyniri 500 Gr",
           "store": "Şahap Gürler Kadıköy Istanbul",
           "unit_price": "650,00 ₺/Kg",
-          "source_time": "27.11.2026 12:06",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:41",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "ŞOK",
@@ -3319,8 +3518,8 @@
           "full_name": "Sütaş Kaşar Peyniri 500 Gr",
           "store": "Şok Minitamer Yeni",
           "unit_price": "650,00 ₺/Kg",
-          "source_time": "27.11.2026 12:06",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:41",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "A101",
@@ -3331,49 +3530,6 @@
       "has_discount": false,
       "best_deal_market": "A101",
       "best_deal_price": 325.0
-    },
-    {
-      "id": "1ZHR",
-      "name": "Tat Domates Salçası 1.5 Kg",
-      "category": "Temel Gıda",
-      "size": "1.5 KG",
-      "image": "https://cdn.marketfiyati.org.tr/carrefourimages/30393338.png",
-      "prices": [
-        {
-          "market": "Migros",
-          "price": 249.95,
-          "regular_price": 249.95,
-          "discount": false,
-          "discount_ratio": 0,
-          "brand": "Tat",
-          "full_name": "Tat Domates Salçası 1.5 Kg",
-          "store": "Çiçekçi M Migros",
-          "unit_price": "166,63 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
-        },
-        {
-          "market": "CarrefourSA",
-          "price": 249.95,
-          "regular_price": 249.95,
-          "discount": false,
-          "discount_ratio": 0,
-          "brand": "Tat",
-          "full_name": "Tat Domates Salçası 1.5 Kg",
-          "store": "Istanbul Üsküdar Salacak Mını",
-          "unit_price": "166,63 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
-        }
-      ],
-      "cheapest_market": "Migros",
-      "cheapest_price": 249.95,
-      "cheapest_brand": "Tat",
-      "max_savings": 0.0,
-      "savings_percent": 0.0,
-      "has_discount": false,
-      "best_deal_market": "Migros",
-      "best_deal_price": 249.95
     },
     {
       "id": "1S3N",
@@ -3392,8 +3548,8 @@
           "full_name": "Tat Köy Domates Salçası 560 Gr",
           "store": "Kadıköy Çarşı M Migros",
           "unit_price": "267,77 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -3405,8 +3561,8 @@
           "full_name": "Tat Köy Domates Salçası 560 Gr",
           "store": "Istanbul Acıbadem Hıper",
           "unit_price": "267,77 ₺/Kg",
-          "source_time": "27.11.2026 12:09",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:44",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
@@ -3435,8 +3591,8 @@
           "full_name": "Tchibo Türk Kahvesi 100 Gr",
           "store": "Istanbul Kadıköy Moda Cad",
           "unit_price": "800,00 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "Migros",
@@ -3448,8 +3604,8 @@
           "full_name": "Tchibo Türk Kahvesi 100 Gr",
           "store": "Çiçekçi M Migros",
           "unit_price": "1.099,50 ₺/Kg",
-          "source_time": "27.11.2026 12:10",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "CarrefourSA",
@@ -3478,8 +3634,8 @@
           "full_name": "Yudum Ayçiçek Yağı 1 Lt",
           "store": "Çiçekçi M Migros",
           "unit_price": "187,95 ₺/Lt",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         },
         {
           "market": "CarrefourSA",
@@ -3491,8 +3647,8 @@
           "full_name": "Yudum Ayçiçek Yağı 1 Lt",
           "store": "Istanbul Üsküdar Salacak Mını",
           "unit_price": "187,95 ₺/Lt",
-          "source_time": "27.11.2026 12:11",
-          "scraped_at": "2026-11-27T17:19:20+03:00"
+          "source_time": "28.11.2026 07:45",
+          "scraped_at": "2026-11-28T18:35:05+03:00"
         }
       ],
       "cheapest_market": "Migros",
